@@ -8,11 +8,9 @@
 
     padding : 40px;
    
-    margin: auto;
-    margin-top: 80px;
-    margin-bottom: 80px;
+   
     width: 25%;
-    height : 450px;
+   
     
     display:flex;
     flex-direction: column;
@@ -123,4 +121,11 @@
 }
 #CA{
     color: rgb(1, 1, 247);
+}
+.mainLogin{
+    display: flex;
+    flex-wrap: wrap;  
+     justify-content: center;
+    align-items: center;
+    padding-top: 50px;
 }

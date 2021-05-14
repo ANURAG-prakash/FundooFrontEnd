@@ -51,6 +51,8 @@ export  default class RegistationPages extends React.Component{
         {
             alert ("validation successfull");
         }
+        else
+        console.log(isValidated);
     }
 
 
@@ -65,7 +67,7 @@ export  default class RegistationPages extends React.Component{
         return (
            
             
-         
+            <div className="main">
             <div className="container">
                 <div className ="row1">
             <div className="body1">
@@ -146,9 +148,10 @@ export  default class RegistationPages extends React.Component{
             control={<Checkbox name="checkedC" />} 
             label="ShowPassword" />
             </div>
-            <div className="body8"><div id="SI"  href="#" >Sign in instead</div><Button variant="contained" color="primary" onclick={this.Next}>Next</Button></div>
+            <div className="body8"><div id="SI"  href="#" >Sign in instead</div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
             <div className="row2"></div>
+        </div>
         </div>
                 
         )
