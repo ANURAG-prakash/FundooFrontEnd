@@ -51,8 +51,7 @@ export  default class RegistationPages extends React.Component{
         {
             alert ("validation successfull");
         }
-        else
-        console.log(isValidated);
+        
     }
 
 

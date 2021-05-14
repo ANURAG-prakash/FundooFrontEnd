@@ -79,7 +79,7 @@ export  default class RegistationPages extends React.Component{
         <div className="body51">
         <TextField 
             error = {this.state.passworderror} 
-            label="PassWord" 
+            label="PassWord"  
             name="password"
             type="text"
             variant="outlined" 
