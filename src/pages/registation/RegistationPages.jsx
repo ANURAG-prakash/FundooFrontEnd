@@ -91,7 +91,7 @@ export  default class RegistationPages extends React.Component{
                  size = "small"
                  type="text"
                  onChange={e => this.change(e)}
-                 hyperText={this.state.fNameerror ? "Enter First Name" : ''}
+                 helperText={this.state.fNameerror ? "Enter First Name" : ''}
                  />
                  
                   <TextField
@@ -103,7 +103,7 @@ export  default class RegistationPages extends React.Component{
                  variant="outlined" 
                  size = "small"
                  onChange={e => this.change(e)}
-                 hyperText={this.state.lNameerror ? "Enter last Name" : ''}
+                 helperText={this.state.lNameerror ? "Enter last Name" : ''}
                  />
 
             </div>
@@ -116,7 +116,7 @@ export  default class RegistationPages extends React.Component{
                  size = "small"
                  fullWidth
                  onChange={e => this.change(e)}
-                 hyperText={this.state.emailerror ? "Enter Email" : ''}
+                 helperText={this.state.emailerror ? "Enter Email" : ''}
                  
                  /></div>
             <div className="body5"> Use My Current Email Address </div>
@@ -129,7 +129,7 @@ export  default class RegistationPages extends React.Component{
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
-            hyperText={this.state.passworderror ? "Enter PassWord" : ''}
+            helperText={this.state.passworderror ? "Enter PassWord" : ''}
              />
              <TextField  
              error = {this.state.cpassworderror} 
@@ -139,7 +139,7 @@ export  default class RegistationPages extends React.Component{
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
-            hyperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
+            helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
             </div>
             <div className="body7">
             <FormControlLabel 
