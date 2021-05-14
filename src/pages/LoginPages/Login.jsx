@@ -1,7 +1,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import './Login.css';
+import './Login.css'
+
 
 
 
@@ -9,7 +10,7 @@ export default class RegistationPages extends React.Component{
     constructor(){
         super()
         this.state = {
-            title : ' Use your Google Account  ',
+            title : ' Use your FundooNote Account  ',
            
         }
     }
@@ -21,18 +22,44 @@ export default class RegistationPages extends React.Component{
 
     render() {
         return (
-    <div className = "titleLogin" >
-        <div className = "header" >{this.state.title}</div>
-        <div className= "Ignore">{"////////////////// text to ignore ////////////////////"}</div>
-        <div className = "Email or phone"  ><TextField id="standard-multiline-flexible" label="Email or phone" variant="outlined" size = "small" multilin rowsMax={4} ></TextField>
-        
-        <div ><h1 style={{color: "blue" ,fontSize: 14}}>Forget email? </h1></div>
-        <div className= "Ignore1">{"////////////////// text to ignore ////////////////////"}</div>
-        <div className="message">Not your computer? Use Guest mode to sign in privately</div>
-        <div class="item"><a href="https://support.google.com/chrome/answer/6130773?hl=en">Learn more?</a></div>
-        <div className= "Ignore1">{"////////////////// text to ignore ////////////////////"}</div>
-       <div className="next"><Button variant="contained" color="primary" href="#">Next</Button></div> </div>
+    <div className = "container1" >
+        <div className="body11">
+               <div id="Fd11">F</div>
+               <div id="Fd21">U</div>
+               <div id="Fd31">N</div>
+               <div id="Fd41">D</div>
+               <div id="Fd51">O</div>
+               <div id="Fd61">O</div>
+               <div id="Fd71">N</div>
+               <div id="Fd81">O</div>
+               <div id="Fd91">T</div>
+               <div id="Fd101">E</div>
         </div>
+        <div className="body21"> Sign In</div>
+        <div className="body31">Use your FundooNote Account</div>
+        <div className="body41">
+            <TextField  
+            label="Email or phone" 
+            variant="outlined" 
+            size = "small" 
+            fullWidth />
+        </div>
+        <div className="body51">
+        <TextField  
+            label="PassWord" 
+            variant="outlined" 
+            size = "small" 
+            fullWidth />
+        </div>
+        <div className="body61">Forget password? </div>
+        <div className="body71">Not your computer? Use Guest mode to sign in privately </div>
+        <div className="body81">Learn More</div>
+        <div className="body91"><div id="CA" href="#" >Creat Account</div><Button variant="contained" color="primary" onclick={this.Next}>Next</Button></div>
+            
+        </div>
+        
+    
+
         )
     }
 }

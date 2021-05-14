@@ -10,23 +10,54 @@ import Button from '@material-ui/core/Button';
 
 
 
+ 
 
-
-
-
-
-export default class RegistationPages extends React.Component{
-    constructor(){
-        super()
+export  default class RegistationPages extends React.Component{
+    constructor(props){
+        super(props)
         this.state = {
-            title : ' Create your Google Account  ',
+            fName: '',
+            lName: '',
+            email: '',
+            password: '',
+            cpassword: '',
+            fNameerror: false,
+            lNameerror: false,
+            emailerror: false,
+            passworderror: false,
+            cpassworderror: false
            
         }
     }
 
+    validation = () =>{
+        let isError = false;
+        const errors = this.state;
+        errors.fNameerror= this.state.fName === '' ? true : false;
+        errors.lNameerror= this.state.lName === '' ? true : false;
+        errors.emailerror= this.state.email === '' ? true : false;
+        errors.passworderror= this.state.password === '' ? true : false;
+        errors.cpassworderror= this.state.cpassword === '' ? true : false;
+        this.setState({
+            ...errors,
+            ...this.state
+        })
+        return isError = (errors.fName!=='' && errors.lName!=='' && errors.email!=='' && errors.password=='' && errors.cpassword=='') ? true :false
+    }
 
-    handleChange = (e) => {
-        console.log(e.target.value);
+    Next = () =>{
+        var isValidated = this.validation();
+        if(isValidated)
+        {
+            alert ("validation successfull");
+        }
+    }
+
+
+    change = e => {
+       this.setState({
+           [e.target.name]: e.target.value
+       });
     }
 
 
@@ -35,35 +66,90 @@ export default class RegistationPages extends React.Component{
            
             
          
-           <div>
-                <div className = "title" >
-                    <div className = "header" >{this.state.title}</div>
-                    <div className= "Ignore">{"////////////////// text to ignore ////////////////////"}</div>
-                    <div className="body">
-                <div className="name" ><TextField  label="FirstName" variant="outlined" size = "small"  />{"  "}
-                <TextField  label="LastName"  variant="outlined" size = "small"   />
-                </div>
-                <div className= "Ignore1">{"////////////////// text to ignore ////////////////////"}</div>
-                <div className="Email"><TextField  label="UserName" helperText="you can use letter,number and period "  layout="fullWidth" variant="outlined"  size = "small"/></div>
-                <div className= "Ignore2">{"////////////////// text to ignore ////////////////////"}</div>
-                <div class ="Tag" ><h1 style={{color: "blue" ,fontSize: 12}}>Use My Current Email Address </h1></div>
-                <div className= "Ignore3">{"////////////////// text to ignore ////////////////////"}</div>
-                <div className = "passWord" helperText="Use 8 or more characters with a mix of letters, numbers & symbols "  ><TextField  label="PassWord" variant="outlined" size = "small" multilin rowsMax={4} />{"    "}
-               < TextField  label="Confirm"  variant="outlined" size = "small"  multiline rowsMax={4}  />
-                </div>
-                </div>
-                <div className= "Ignore4">{"////////////////// text to ignore ////////////////////"}</div>
-                <div className="box"><FormControlLabel control={<Checkbox name="checkedC" />} label="ShowPassword" /></div>
-                
-                <div className= "Ignore5">{"////////////////// text to ignore ////////////////////"}</div>
-                <div><Button variant="contained" color="primary" href="#">Next</Button></div>
-                
+            <div className="container">
+                <div className ="row1">
+            <div className="body1">
+               <div id="Fd1">F</div>
+               <div id="Fd2">U</div>
+               <div id="Fd3">N</div>
+               <div id="Fd4">D</div>
+               <div id="Fd5">O</div>
+               <div id="Fd6">O</div>
+               <div id="Fd7">N</div>
+               <div id="Fd8">O</div>
+               <div id="Fd9">T</div>
+               <div id="Fd10">E</div>
+            </div>
+            <div className ="body2">Create your FundooNote Account</div>
+            <div className ="body3">
+                <TextField
+                id="FL1"
+                error = {this.state.fNameerror}
+                name="fName"
+                 label="FirstName" 
+                 variant="outlined" 
+                 size = "small"
+                 type="text"
+                 onChange={e => this.change(e)}
+                 hyperText={this.state.fNameerror ? "Enter First Name" : ''}
+                 />
+                 
+                  <TextField
+                  id="FL2"
+                  error = {this.state.lNameerror}
+                  name="lName"
+                 label="LastName" 
+                 type="text"
+                 variant="outlined" 
+                 size = "small"
+                 onChange={e => this.change(e)}
+                 hyperText={this.state.lNameerror ? "Enter last Name" : ''}
+                 />
 
-  
-
-                 </div>
-                
-                 </div>
+            </div>
+            <div className="body4"> <TextField
+                 error = {this.state.emailerror}
+                 label="Email" 
+                 name="email"
+                 type="text"
+                 variant="outlined" 
+                 size = "small"
+                 fullWidth
+                 onChange={e => this.change(e)}
+                 hyperText={this.state.emailerror ? "Enter Email" : ''}
+                 
+                 /></div>
+            <div className="body5"> Use My Current Email Address </div>
+            <div className="body6">
+            <TextField 
+            error = {this.state.passworderror} 
+            label="PassWord" 
+            name="password"
+            type="text"
+            variant="outlined" 
+            size = "small" 
+            onChange={e => this.change(e)}
+            hyperText={this.state.passworderror ? "Enter PassWord" : ''}
+             />
+             <TextField  
+             error = {this.state.cpassworderror} 
+            label="Confirm"
+            name="cpassword" 
+            type="text"
+            variant="outlined" 
+            size = "small" 
+            onChange={e => this.change(e)}
+            hyperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
+            </div>
+            <div className="body7">
+            <FormControlLabel 
+            control={<Checkbox name="checkedC" />} 
+            label="ShowPassword" />
+            </div>
+            <div className="body8"><div id="SI"  href="#" >Sign in instead</div><Button variant="contained" color="primary" onclick={this.Next}>Next</Button></div>
+            </div>
+            <div className="row2"></div>
+        </div>
                 
         )
     }

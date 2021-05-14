@@ -8,8 +8,8 @@ import LoginPages from './pages/LoginPages/Login';
 function App() {
   return (
     <div className="App">
-           < RegistationPages />     
-       {/* < LoginPages />   */}
+             < RegistationPages />       
+          {/* < LoginPages />      */}
        
       
      
