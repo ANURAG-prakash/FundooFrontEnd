@@ -51,6 +51,7 @@ export  default class RegistationPages extends React.Component{
         {
             alert ("validation successfull");
         }
+        
     }
 
 
@@ -65,7 +66,7 @@ export  default class RegistationPages extends React.Component{
         return (
            
             
-         
+            <div className="main">
             <div className="container">
                 <div className ="row1">
             <div className="body1">
@@ -91,7 +92,7 @@ export  default class RegistationPages extends React.Component{
                  size = "small"
                  type="text"
                  onChange={e => this.change(e)}
-                 hyperText={this.state.fNameerror ? "Enter First Name" : ''}
+                 helperText={this.state.fNameerror ? "Enter First Name" : ''}
                  />
                  
                   <TextField
@@ -103,7 +104,7 @@ export  default class RegistationPages extends React.Component{
                  variant="outlined" 
                  size = "small"
                  onChange={e => this.change(e)}
-                 hyperText={this.state.lNameerror ? "Enter last Name" : ''}
+                 helperText={this.state.lNameerror ? "Enter last Name" : ''}
                  />
 
             </div>
@@ -116,7 +117,7 @@ export  default class RegistationPages extends React.Component{
                  size = "small"
                  fullWidth
                  onChange={e => this.change(e)}
-                 hyperText={this.state.emailerror ? "Enter Email" : ''}
+                 helperText={this.state.emailerror ? "Enter Email" : ''}
                  
                  /></div>
             <div className="body5"> Use My Current Email Address </div>
@@ -129,7 +130,7 @@ export  default class RegistationPages extends React.Component{
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
-            hyperText={this.state.passworderror ? "Enter PassWord" : ''}
+            helperText={this.state.passworderror ? "Enter PassWord" : ''}
              />
              <TextField  
              error = {this.state.cpassworderror} 
@@ -139,16 +140,17 @@ export  default class RegistationPages extends React.Component{
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
-            hyperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
+            helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
             </div>
             <div className="body7">
             <FormControlLabel 
             control={<Checkbox name="checkedC" />} 
             label="ShowPassword" />
             </div>
-            <div className="body8"><div id="SI"  href="#" >Sign in instead</div><Button variant="contained" color="primary" onclick={this.Next}>Next</Button></div>
+            <div className="body8"><div id="SI"  href="#" >Sign in instead</div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
             <div className="row2"></div>
+        </div>
         </div>
                 
         )
