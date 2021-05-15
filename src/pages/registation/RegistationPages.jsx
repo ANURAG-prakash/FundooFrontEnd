@@ -69,7 +69,6 @@ export  default class RegistationPages extends React.Component{
               console.log(result);
               if(result.data.data.success){
                 console.log("***********************success*******************")
-                //this.props.userdata_update(result.data.data)
                 localStorage.setItem('user_details', result.data.data);
                 this.setState({redirect: "/Dashboard"});
               }
