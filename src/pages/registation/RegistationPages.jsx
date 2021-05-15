@@ -4,14 +4,10 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './Registation.css';
 import Button from '@material-ui/core/Button';
+import Userservice from '../../Services/userservices'
 
 
-
-
-
-
- 
-
+const axios_service = new Userservice();
 export  default class RegistationPages extends React.Component{
     constructor(props){
         super(props)
@@ -30,6 +26,13 @@ export  default class RegistationPages extends React.Component{
         }
     }
 
+    signinpage = () => {
+
+        this.setState({ redirect: "/login"});
+      }
+
+      
+
     validation = () =>{
         let isError = false;
         const errors = this.state;
@@ -47,9 +50,31 @@ export  default class RegistationPages extends React.Component{
 
     Next = () =>{
         var isValidated = this.validation();
+        if(!isValidated)
+        {
+            alert (isValidated,this.state);
+        }
         if(isValidated)
         {
-            alert ("validation successfull");
+          let data = {
+            "firstName": this.state.fName,
+            "lastName": this.state.lName,
+            "email": this.state.email,
+            "service": "advance",
+            "password": this.state.password,
+            "confirmpassword": this.state.cpassword    
+          };
+          alert("Account Created successful");
+          axios_service.Registration(data).then((result) => {
+              console.log(result);
+              if(result.data.data.success){
+                console.log("***********************success*******************")
+                //this.props.userdata_update(result.data.data)
+                localStorage.setItem('user_details', result.data.data);
+                this.setState({redirect: "/Dashboard"});
+              }
+
+          })
         }
         
     }
@@ -147,7 +172,7 @@ export  default class RegistationPages extends React.Component{
             control={<Checkbox name="checkedC" />} 
             label="ShowPassword" />
             </div>
-            <div className="body8"><div id="SI"  href="#" >Sign in instead</div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
+            <div className="body8"><div id="SI" ><a onClick = {this.signinpage}> Sign In Instead </a></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
             <div className="row2"></div>
         </div>

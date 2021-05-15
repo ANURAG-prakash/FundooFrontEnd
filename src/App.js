@@ -4,20 +4,21 @@ import './pages/registation/RegistationPages';
 import './pages/LoginPages/Login';
 import RegistrationPages from './pages/registation/RegistationPages';
 import LoginPages from './pages/LoginPages/Login';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter,  Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-             {/* < RegistationPages />        */}
-           {/* < LoginPages />       */}
-           <BrowserRouter>
+              {/* < RegistrationPages />         */}
+            {/* < LoginPages />        */}
+            <BrowserRouter>
         <Switch>
           <Route path= "/login" component={LoginPages} />
           <Route path= "/registration" component={RegistrationPages} />
         </Switch>
-      </BrowserRouter>
-  );
+      </BrowserRouter> 
+  
+  
        
       
      
