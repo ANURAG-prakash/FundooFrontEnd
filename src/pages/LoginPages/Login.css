@@ -1,4 +1,4 @@
-.container1{
+.containerlogin{
     background-color: rgb(255, 255, 255);
     border-style:solid;
     border-radius: 10px;
@@ -9,118 +9,120 @@
     padding : 40px;
    
    
-    width: 25%;
+    width: 360px;
    
     
     display:flex;
     flex-direction: column;
 }
-.body11{
+.bodyLF{
     display:flex;
     float: top center;
     padding-left: 120px;
     padding-bottom: 20px;
 }
-#Fd11{
+#LF{
     font-family: sans-serif;
     font-style: normal;
     color: #e44d12;
     font-size:large ;
 
 }
-#Fd21{
+#LU{
     font-family: sans-serif;
     font-style: normal;
     color: #bde412;
     font-size: large;
 }
-#Fd31{
+#LN{
     font-family: sans-serif;
     font-style: normal;
     color: #24e412;
     font-size: large;
 }
-#Fd41{
+#LD{
     font-family: sans-serif;
     font-style: normal;
     color: #12a8e4;
     font-size: large;
 }
-#Fd51{
+#LO{
     font-family: sans-serif;
     font-style: normal;
     color: #e412d9;
     font-size: large;
 }
-#Fd61{
+#LOO{
     font-family: sans-serif;
     font-style: normal;
     color: #e41212;
     font-size: large;
 }
-#Fd71{
+#LN{
     font-family: sans-serif;
     font-style: normal;
     color: #12d6e4;
     font-size: large;
 }
-#Fd81{
+#LOOO{
     font-family: sans-serif;
     font-style: normal;
     color: #9012e4;
     font-size: large;
 }
-#Fd91{
+#LT{
     font-family: sans-serif;
     font-style: normal;
     color: #a5e412;
     font-size: large;
 }
-#Fd101{
+#LE{
     font-family: sans-serif;
     font-style: normal;
     color: #12e446;
     font-size: large;
 }
-.body21{
+.bodySI{
     display:flex;
     padding-left: 150px;
     padding-bottom: 20px;
     font-size: large;
    font-family: sans-serif;
 }
-.body31{
+.bodyFA{
     display:flex;
     padding-left: 70px;
     padding-bottom : 35px;
 }
-.body41{
+.bodyLTE{
     display:flex;
     padding-bottom: 20px;
 }
-.body51{
+.bodyLTP{
     display:flex;
 }
-.body61{
+.bodyLFP{
     display:flex;
     color :blue;
     padding-bottom: 35px;
 }
-.body71{
+.bodyLP{
     display:flex;
     font-size: small;
 }
-.body81{
+.bodyLLM{
     display:flex;
     color:blue;
     padding-bottom: 45px;
 }
-.body91{
+.bodyLB{
     display:flex;
     column-gap: 200px;
+    font-size: small;
 }
 #CA{
     color: rgb(1, 1, 247);
+    font-size: smaller;
 }
 .mainLogin{
     display: flex;

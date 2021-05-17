@@ -2,92 +2,100 @@
     background-color: rgb(255, 255, 255);
     border-style:solid;
     border-color: rgb(230, 216, 216);
-    border-radius: 10px;
-    padding : 40px;
-    width: 42%;
+    border-radius: 5px;
+    padding : 20px;
+    width: 500px;
     
-    background-image: url('../../assests/gmailimage.svg');
+    /* background-image: url('../../assests/gmailimage.svg');
     background-position: right center;
     background-repeat: no-repeat;
-    background-size: 30%; 
+    background-size: 30%;   */
     display:flex;  
+    flex-direction: row;
       
    
 }
+@media only screen and (max-width: 500px) {
+    .container {
+      background-color: lightblue;
+    
+    }
+}
 
-.row1{
+.rowFirst{
     display: flex;
     flex-direction: column;
+    align-items:flex-start
     
 }
 
 
 
-.body1{
+.bodySFD{
     float: inline-start;
-    padding-top: 30px;
-    padding-right: 30px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 12px;
     display :flex;
     
     
 }
-#Fd1{
+#SF{
     font-family: sans-serif;
     font-style: normal;
     color: #e44d12;
     font-size: large;
 
 }
-#Fd2{
+#SU{
     font-family: sans-serif;
     font-style: normal;
     color: #bde412;
     font-size: large;
 }
-#Fd3{
+#SN{
     font-family: sans-serif;
     font-style: normal;
     color: #24e412;
     font-size: large;
 }
-#Fd4{
+#SD{
     font-family: sans-serif;
     font-style: normal;
     color: #12a8e4;
     font-size: large;
 }
-#Fd5{
+#SO{
     font-family: sans-serif;
     font-style: normal;
     color: #e412d9;
     font-size: large;
 }
-#Fd6{
+#SOO{
     font-family: sans-serif;
     font-style: normal;
     color: #e41212;
     font-size: large;
 }
-#Fd7{
+#SN{
     font-family: sans-serif;
     font-style: normal;
     color: #12d6e4;
     font-size: large;
 }
-#Fd8{
+#SOOO{
     font-family: sans-serif;
     font-style: normal;
     color: #9012e4;
     font-size: large;
 }
-#Fd9{
+#ST{
     font-family: sans-serif;
     font-style: normal;
     color: #a5e412;
     font-size: large;
 }
-#Fd10{
+#SE{
     font-family: sans-serif;
     font-style: normal;
     color: #12e446;
@@ -95,59 +103,70 @@
 }
 
 
-.body2{
+.bodySCA{
     display :flex;
-    padding-bottom: 25px;
-    font-size: x-large;
+    padding-bottom: 12px;
+    font-size: large;
 
 }
-.body3{
+.bodySTN{
     display :flex;
-    padding-bottom: 25px;
-    border: 5px solid white;
-    column-gap: 10px;
+    padding-bottom: 12px;
+    border: 2px solid white;
+    column-gap: 5px;
 }
-#FL1{
-    padding-right:10px;
-    width : 40%;
-}
-#FL2{
-    padding-left:10px;
-    width: 40%;
-}
-.body4{
-    display :flex;
-    padding-bottom: 25px;
+
+.bodySTE{
+    width: 320px;
+    padding-bottom: 12px;
+    align-items: flex-start;
+
     
 }
-.body5{
+.bodySCE{
     display :flex;
-    padding-bottom: 25px;
+    padding-bottom: 12px;
     color: blue;
 }
-.body6{
+.bodySTP{
     display :flex;
-    padding-bottom: 25px;
-    column-gap: 10px;
+    padding-bottom: 12px;
+    column-gap: 5px;
 }
-.body7{
+.bodySCB{
     display :flex;
-    padding-bottom: 25px;
+    padding-bottom: 12px;
 }
-.body8{
+.bodySSU{
     display :flex;
+    color: rgb(13, 45, 228);
     flex-direction: row;
-    padding-bottom: 25px;
-    column-gap: 250px;
+    padding-bottom: 12px;
+    column-gap: 125px;
 }
 #SI{
-    color: rgb(19, 19, 247);
+    font-size: small;
 }
 .main{
     display: flex;
     flex-wrap: wrap;  
      justify-content: center;
     align-items: center;
-    padding-top: 50px
+    padding-top: 100px
 }
+ .image{
+ align-items: baseline;
+    padding-top: 60px;
+    
 
+}
+ 
+ .row2{
+    display: flex;
+   
+    align-items:center;
+   
+} 
+#text{
+    font-size: small;
+}

@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React from 'react'
 import axios from 'axios'
 
-export class Axios extends Component {
+export default class Axios extends React.Component {
 
     constructor(props) {
 
@@ -24,15 +24,18 @@ export class Axios extends Component {
         // })
     
 
-        // post(baseurl, data, header)
-        axios.post('https://jsonplaceholder.typicode.com/users/')
+        post(baseurl, data, header)
+        axios.post('http://fundoonotes.incubation.bridgelabz.com/explorer/#!/user_userSignUp')
         .then((res)=>{
-            console.log(res.data);
-        })
-        .catch((err)=>{
+             console.log(res.data);
+         })
+         .catch((err)=>{
             console.log(err)
-        })
-    }
+         })
+    //     axios.get('https://jsonplaceholder.typicode.com/users')
+    //     .then()
+    //     .catch()
+     }
 
     render() {
         return (

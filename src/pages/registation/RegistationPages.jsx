@@ -4,7 +4,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './Registation.css';
 import Button from '@material-ui/core/Button';
-import Userservice from '../../Services/userservices'
+import Userservice from '../../Services/userservices';
+import image from '../../assests/gmailimage.svg';
+import { Redirect } from "react-router-dom";
 
 
 const axios_service = new Userservice();
@@ -13,7 +15,7 @@ export  default class RegistationPages extends React.Component{
         super(props)
         this.state = {
             fName: '',
-            lName: '',
+            lName: '', 
             email: '',
             password: '',
             cpassword: '',
@@ -21,7 +23,8 @@ export  default class RegistationPages extends React.Component{
             lNameerror: false,
             emailerror: false,
             passworderror: false,
-            cpassworderror: false
+            cpassworderror: false,
+            redirect: null
            
         }
     }
@@ -41,11 +44,12 @@ export  default class RegistationPages extends React.Component{
         errors.emailerror= this.state.email === '' ? true : false;
         errors.passworderror= this.state.password === '' ? true : false;
         errors.cpassworderror= this.state.cpassword === '' ? true : false;
+         
         this.setState({
             ...errors,
-            ...this.state
+            // ...this.state
         })
-        return isError = (errors.fName!=='' && errors.lName!=='' && errors.email!=='' && errors.password=='' && errors.cpassword=='') ? true :false
+        return isError = (errors.fName!=='' && errors.lName!=='' && errors.email!=='' && errors.password!=='' && errors.cpassword!=='') ? true :false
     }
 
     Next = () =>{
@@ -61,8 +65,7 @@ export  default class RegistationPages extends React.Component{
             "lastName": this.state.lName,
             "email": this.state.email,
             "service": "advance",
-            "password": this.state.password,
-            "confirmpassword": this.state.cpassword    
+            "password": this.state.password   
           };
           alert("Account Created successful");
           axios_service.Registration(data).then((result) => {
@@ -87,28 +90,32 @@ export  default class RegistationPages extends React.Component{
 
 
     render() {
+        if (this.state.redirect)
+        {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
            
             
             <div className="main">
             <div className="container">
-                <div className ="row1">
-            <div className="body1">
-               <div id="Fd1">F</div>
-               <div id="Fd2">U</div>
-               <div id="Fd3">N</div>
-               <div id="Fd4">D</div>
-               <div id="Fd5">O</div>
-               <div id="Fd6">O</div>
-               <div id="Fd7">N</div>
-               <div id="Fd8">O</div>
-               <div id="Fd9">T</div>
-               <div id="Fd10">E</div>
+                <div className ="rowFirst">
+            <div className="bodySFD">
+               <div id="SF">F</div>
+               <div id="SU">U</div>
+               <div id="SN">N</div>
+               <div id="SD">D</div>
+               <div id="SO">O</div>
+               <div id="SOO">O</div>
+               <div id="SN">N</div>
+               <div id="SOOO">O</div>
+               <div id="ST">T</div>
+               <div id="SE">E</div>
             </div>
-            <div className ="body2">Create your FundooNote Account</div>
-            <div className ="body3">
+            <div className ="bodySCA">Create your FundooNote Account</div>
+            <div className ="bodySTN">
                 <TextField
-                id="FL1"
+                id="FLF"
                 error = {this.state.fNameerror}
                 name="fName"
                  label="FirstName" 
@@ -120,7 +127,7 @@ export  default class RegistationPages extends React.Component{
                  />
                  
                   <TextField
-                  id="FL2"
+                  id="FLS"
                   error = {this.state.lNameerror}
                   name="lName"
                  label="LastName" 
@@ -132,7 +139,7 @@ export  default class RegistationPages extends React.Component{
                  />
 
             </div>
-            <div className="body4"> <TextField
+            <div className="bodySTE"> <TextField
                  error = {this.state.emailerror}
                  label="Email" 
                  name="email"
@@ -144,13 +151,13 @@ export  default class RegistationPages extends React.Component{
                  helperText={this.state.emailerror ? "Enter Email" : ''}
                  
                  /></div>
-            <div className="body5"> Use My Current Email Address </div>
-            <div className="body6">
+            <div className="bodySCE"> Use My Current Email Address </div>
+            <div className="bodySTP">
             <TextField 
             error = {this.state.passworderror} 
             label="PassWord" 
             name="password"
-            type="text"
+            type="password"
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
@@ -160,20 +167,24 @@ export  default class RegistationPages extends React.Component{
              error = {this.state.cpassworderror} 
             label="Confirm"
             name="cpassword" 
-            type="text"
+            type="password"
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
             helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
             </div>
-            <div className="body7">
+            <div className="bodySCB">
             <FormControlLabel 
             control={<Checkbox name="checkedC" />} 
             label="ShowPassword" />
             </div>
-            <div className="body8"><div id="SI" ><a onClick = {this.signinpage}> Sign In Instead </a></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
+            <div className="bodySSU"><div id="SI" ><Button   onClick = {this.signinpage}>Sign In</Button></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
-            <div className="row2"></div>
+            <div className="rowSecond">
+             <img class= "image" src = {image}  /> <div id="text">
+             One account. All of Fundoo working for you. 
+             </div>
+            </div>
         </div>
         </div>
                 
