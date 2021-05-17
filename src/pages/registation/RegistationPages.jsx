@@ -173,11 +173,11 @@ export  default class RegistationPages extends React.Component{
             onChange={e => this.change(e)}
             helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
             </div>
-            <div className="bodySCB">
+            {/* <div className="bodySCB">
             <FormControlLabel 
             control={<Checkbox name="checkedC" />} 
             label="ShowPassword" />
-            </div>
+            </div> */}
             <div className="bodySSU"><div id="SI" ><Button   onClick = {this.signinpage}>Sign In</Button></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
             <div className="rowSecond">

@@ -42,7 +42,7 @@ export  default class RegistationPages extends React.Component{
         var isValidated = this.validation();
         if(isValidated)
         {
-            alert ("validation successfull");
+            alert ("Login successfull");
         }
         
     }
@@ -80,7 +80,7 @@ export  default class RegistationPages extends React.Component{
                  error = {this.state.emailerror}
                  label="Email" 
                  name="email"
-                 type="text"
+                 type="Email"
                  variant="outlined" 
                  size = "small"
                  fullWidth

@@ -130,13 +130,13 @@
 }
 .bodySTP{
     display :flex;
-    padding-bottom: 12px;
+    padding-bottom: 18px;
     column-gap: 5px;
 }
-.bodySCB{
+/* .bodySCB{
     display :flex;
     padding-bottom: 12px;
-}
+} */
 .bodySSU{
     display :flex;
     color: rgb(13, 45, 228);
