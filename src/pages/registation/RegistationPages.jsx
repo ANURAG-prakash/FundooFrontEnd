@@ -151,8 +151,8 @@ export  default class RegistationPages extends React.Component{
                  onChange={e => this.change(e)}
                  helperText={this.state.emailerror ? "Enter Email" : ''}
                  
-                 /></div>
-            <div className="bodySCE"> Use My Current Email Address </div>
+                 /><div className="text" >you can use letter,number &period</div></div>
+            <div className="bodySCE"> Use my current email address insted</div>
             <div className="bodySTP">
             <TextField 
             error = {this.state.passworderror} 
@@ -172,19 +172,14 @@ export  default class RegistationPages extends React.Component{
             variant="outlined" 
             size = "small" 
             onChange={e => this.change(e)}
-            helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} />
-            </div>
-            {/* <div className="bodySCB">
-            <FormControlLabel 
-            control={<Checkbox name="checkedC" />} 
-            label="ShowPassword" />
-            </div> */}
+            helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} /></div>
+            <div className="text2">Use 8 or more characters with a mix of letters, numbers & symbols</div>
             <div className="bodySSU"><div id="SI" ><Button   onClick = {this.signinpage}>Sign In</Button></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
             <div className="rowSecond">
-             <img class= "image" src = {image}  /> <div id="text">
+             <img class= "image" src = {image}  /> 
              One account. All of Fundoo working for you. 
-             </div>
+             
             </div>
         </div>
         </div>

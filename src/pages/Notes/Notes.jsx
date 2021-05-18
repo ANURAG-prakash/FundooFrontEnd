@@ -6,8 +6,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -15,13 +13,16 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import SearchIcon from '@material-ui/icons/Search';
-import Input from '@material-ui/core/Input';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import './Notes.css';
 import InputBase from '@material-ui/core/InputBase';
+import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
+import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 
 const drawerWidth = 240;
 
@@ -47,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   search: {
-    display: 'flex',
-    flexDirection: 'row',
+ display: 'flex',
+ flexDirection: 'row',
  position: 'relative',
  border: "1px solid transparent", 
  borderRadius: theme.shape.borderRadius,
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
  marginLeft: "100px",
  borderRadius: "8px",
  position: 'relative',
- width: "550px",
+ width: "650px",
 },
 inputInput: {
  padding: theme.spacing(1, 1, 1, 0),
@@ -102,7 +103,7 @@ inputInput: {
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    
     ...theme.mixins.toolbar,
   },
   content: {
@@ -173,6 +174,7 @@ export default function MiniDrawer() {
             />
             
           </div>
+        
         </Toolbar>
       </AppBar>
       <Drawer
@@ -193,16 +195,25 @@ export default function MiniDrawer() {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
-        <Divider />
+       
         <List>
           {['Notes', 'Reminders', 'Inspiration', 'Personal','Work','Edit Lable','Archive','Bin'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>
+              {index === 0 && <EmojiObjectsOutlinedIcon/>}
+              {index === 1 && <NotificationsNoneOutlinedIcon/>}
+              {index === 2 && <LabelOutlinedIcon />}
+              {index === 3 && <LabelOutlinedIcon />}
+              {index === 4 && <LabelOutlinedIcon/>}
+              {index === 5 && <EditOutlinedIcon/>}
+              {index === 6 && <ArchiveOutlinedIcon />}
+              {index === 7 && <DeleteIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
-        <Divider />
+        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
@@ -210,9 +221,8 @@ export default function MiniDrawer() {
             <form>
                 <input type="text" placeholder ="Title" name="title" />
                 <p> 
-                  <textarea name="content" placeholder="Take a note ......">
-                   {" "}
-                    </textarea>
+                  <textarea name="content" placeholder ="Take a note ......"/>
+                   
                     </p>
             </form>
 

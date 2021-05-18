@@ -5,8 +5,6 @@ import './Login.css';
 import { Redirect } from "react-router-dom";
 import Userservice from '../../Services/userservices';
 
-
-
 const axios_service = new Userservice();
 
 export  default class RegistationPages extends React.Component{
@@ -92,6 +90,7 @@ export  default class RegistationPages extends React.Component{
         </div>
         <div className="bodySI"> Sign In</div>
         <div className="bodyFA">Use your FundooNote Account</div>
+        <div className="bodyText">
         <div className="bodyLTE">
         <TextField
                  error = {this.state.emailerror}
@@ -99,7 +98,7 @@ export  default class RegistationPages extends React.Component{
                  name="email"
                  type="Email"
                  variant="outlined" 
-                 size = "small"
+                 size = "large"
                  fullWidth
                  onChange={e => this.change(e)}
                  helperText={this.state.emailerror ? "Enter Email" : ''} />
@@ -112,7 +111,7 @@ export  default class RegistationPages extends React.Component{
                  name="password"
                  type="password"
                  variant="outlined" 
-                 size = "small"
+                 size = "large"
                  fullWidth
                  onChange={e => this.change(e)}
                  helperText={this.state.passworderror ? "Enter password" : ''} />
@@ -121,13 +120,10 @@ export  default class RegistationPages extends React.Component{
         <div className="bodyLFP">Forget password? </div>
         <div className="bodyLP">Not your computer? Use Guest mode to sign in privately </div>
         <div className="bodyLLM">Learn More</div>
-        <div className="bodyLB"><div id="CA"  ><Button  color= "primary" onClick = {this.signinpage}>Creat Account</Button></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
-            
+        </div>
+        <div className="bodyLB"><Button  color= "primary" onClick = {this.signinpage}><div id="CA">Create Account</div></Button><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>   
         </div>
         </div>
-        
-    
-
         )
     }
 }
