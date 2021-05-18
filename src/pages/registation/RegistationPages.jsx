@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom";
 
 
 const axios_service = new Userservice();
+
 export  default class RegistationPages extends React.Component{
     constructor(props){
         super(props)
