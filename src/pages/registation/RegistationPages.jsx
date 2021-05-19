@@ -65,6 +65,7 @@ export  default class RegistationPages extends React.Component{
             "firstName": this.state.fName,
             "lastName": this.state.lName,
             "email": this.state.email,
+             "service": "advance",
             "password": this.state.password   
           };
           alert("Account Created successful");
@@ -176,7 +177,7 @@ export  default class RegistationPages extends React.Component{
             <div className="bodySSU"><div id="SI" ><Button   onClick = {this.signinpage}>Sign In</Button></div><Button variant="contained" color="primary" onClick={this.Next}>Next</Button></div>
             </div>
             <div className="rowSecond">
-             <img class= "image" src = {image}  /> 
+             <img className= "image" src = {image}  /> 
              One account. All of Fundoo working for you. 
              
             </div>

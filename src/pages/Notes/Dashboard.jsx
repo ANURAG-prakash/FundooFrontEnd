@@ -41,14 +41,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'spaceBetween',
     
   },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
+  // appBarShift: {
+  //   marginLeft: drawerWidth,
+  //   width: `calc(100% - ${drawerWidth}px)`,
+  //   transition: theme.transitions.create(['width', 'margin'], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  // },
   search: {
  display: 'flex',
  flexDirection: 'row',
