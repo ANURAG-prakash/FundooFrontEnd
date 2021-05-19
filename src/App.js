@@ -1,10 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import './pages/registation/RegistationPages';
-import './pages/LoginPages/Login';
-import RegistrationPages from './pages/registation/RegistationPages';
 import LoginPages from './pages/LoginPages/Login';
-import Notes from './pages/Notes/Notes';
+import RegistrationPages from './pages/registation/RegistationPages';
+import Dashboard from './pages/Notes/Dashboard';
 import { BrowserRouter,  Route, Switch } from 'react-router-dom';
 
 
@@ -17,7 +13,7 @@ function App() {
         <Switch>
           <Route path= "/login" component={LoginPages} />
           <Route path= "/registration" component={RegistrationPages} />
-          <Route path="/notes" component={Notes}/>
+          <Route path="/dashboard" component={Dashboard}/>
         </Switch>
       </BrowserRouter> 
    
@@ -30,3 +26,4 @@ function App() {
 }
 
 export default App;
+

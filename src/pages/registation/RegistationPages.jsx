@@ -65,7 +65,6 @@ export  default class RegistationPages extends React.Component{
             "firstName": this.state.fName,
             "lastName": this.state.lName,
             "email": this.state.email,
-            "service": "advance",
             "password": this.state.password   
           };
           alert("Account Created successful");
@@ -74,7 +73,7 @@ export  default class RegistationPages extends React.Component{
               if(result.data.data.success){
                 console.log("***********************success*******************")
                 localStorage.setItem('user_details', result.data.data);
-                this.setState({redirect: "/Dashboard"});
+                this.setState({redirect: "/login"});
               }
 
           })
@@ -187,3 +186,5 @@ export  default class RegistationPages extends React.Component{
         )
     }
 }
+
+         

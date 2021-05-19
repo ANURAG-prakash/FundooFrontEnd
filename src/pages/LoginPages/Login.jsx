@@ -15,7 +15,8 @@ export  default class RegistationPages extends React.Component{
             password: '',
             emailerror: false,
             passworderror: false,
-            redirect: null
+            redirect: null,
+            loginOpen : false
            
         }
     }
@@ -44,13 +45,13 @@ export  default class RegistationPages extends React.Component{
         {
             let data = {
                 "email": this.state.Email,
-                "service": "advance",
                 "password": this.state.Password
               };
             alert ("Login successfull");
             axios_service.Login(data).then((result) => {
                 console.log(result);
-                console.log(result.data.data.success);
+                this.setState({loginOpen: true});
+              setTimeout(() => this.setState({redirect: "/dashboard"}), 1000)
                 
               })
             }
