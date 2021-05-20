@@ -22,7 +22,7 @@ import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Addnotes from './Createarea.jsx';
+import Addnotes from '../../components/CreateNotes';
 // import Note from './Note';
 
 

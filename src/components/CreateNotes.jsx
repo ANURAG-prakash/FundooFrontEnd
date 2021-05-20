@@ -2,8 +2,8 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Userservice from '../../Services/userservices';
-import './Createarea.css';
+import Userservice from '../Services/userservices';
+import './CreateNotes.css';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
