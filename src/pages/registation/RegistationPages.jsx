@@ -28,14 +28,20 @@ export  default class RegistationPages extends React.Component{
             redirect: null
            
         }
+        this.inputref = React.createRef()
     }
+
+    componentDidMount(){
+        console.log(this.inputref)
+    this.inputref.current.focus()
+      }
 
     signinpage = () => {
 
         this.setState({ redirect: "/login"});
       }
 
-      
+     
 
     validation = () =>{
         let isError = false;
@@ -65,13 +71,12 @@ export  default class RegistationPages extends React.Component{
             "firstName": this.state.fName,
             "lastName": this.state.lName,
             "email": this.state.email,
-             "service": "advance",
             "password": this.state.password   
           };
           alert("Account Created successful");
           axios_service.Registration(data).then((result) => {
               console.log(result);
-              if(result.data.data.success){
+              if(result.data.message){
                 console.log("***********************success*******************")
                 localStorage.setItem('user_details', result.data.data);
                 this.setState({redirect: "/login"});
@@ -117,11 +122,12 @@ export  default class RegistationPages extends React.Component{
             <div className ="bodySTN">
                 <TextField
                 id="FLF"
+                inputRef={this.inputref}
                 error = {this.state.fNameerror}
                 name="fName"
                  label="FirstName" 
                  variant="outlined" 
-                 size = "small"
+                 size = "midum"
                  type="text"
                  onChange={e => this.change(e)}
                  helperText={this.state.fNameerror ? "Enter First Name" : ''}
@@ -134,7 +140,7 @@ export  default class RegistationPages extends React.Component{
                  label="LastName" 
                  type="text"
                  variant="outlined" 
-                 size = "small"
+                 size = "midum"
                  onChange={e => this.change(e)}
                  helperText={this.state.lNameerror ? "Enter last Name" : ''}
                  />
@@ -146,7 +152,7 @@ export  default class RegistationPages extends React.Component{
                  name="email"
                  type="text"
                  variant="outlined" 
-                 size = "small"
+                 size = "midum"
                  fullWidth
                  onChange={e => this.change(e)}
                  helperText={this.state.emailerror ? "Enter Email" : ''}
@@ -160,7 +166,7 @@ export  default class RegistationPages extends React.Component{
             name="password"
             type="password"
             variant="outlined" 
-            size = "small" 
+            size = "midum" 
             onChange={e => this.change(e)}
             helperText={this.state.passworderror ? "Enter PassWord" : ''}
              />
@@ -170,7 +176,7 @@ export  default class RegistationPages extends React.Component{
             name="cpassword" 
             type="password"
             variant="outlined" 
-            size = "small" 
+            size = "midum" 
             onChange={e => this.change(e)}
             helperText={this.state.cpassworderror ? "Enter confirm PassWord" : ''} /></div>
             <div className="text2">Use 8 or more characters with a mix of letters, numbers & symbols</div>

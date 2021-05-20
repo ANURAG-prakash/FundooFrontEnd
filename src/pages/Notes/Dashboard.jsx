@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   // appBarShift: {
   //   marginLeft: drawerWidth,
-  //   width: `calc(100% - ${drawerWidth}px)`,
+  //   // width: `calc(100% - ${drawerWidth}px)`,
   //   transition: theme.transitions.create(['width', 'margin'], {
   //     easing: theme.transitions.easing.sharp,
   //     duration: theme.transitions.duration.enteringScreen,
@@ -143,9 +143,13 @@ export default function MiniDrawer() {
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, {
-              [classes.hide]: open,
+              // [classes.hide]: open,
             })}
           >
+           
+        
+
+            
             <MenuIcon />
           </IconButton>
          <div className="Fundoo">
@@ -192,11 +196,7 @@ export default function MiniDrawer() {
           }),
         }}
       >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
+        
        
         <List>
           {['Notes', 'Reminders', 'Inspiration', 'Personal','Work','Edit Lable','Archive','Bin'].map((text, index) => (
@@ -215,7 +215,11 @@ export default function MiniDrawer() {
             </ListItem>
           ))}
         </List>
-        
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </div> 
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

@@ -19,7 +19,16 @@ export  default class RegistationPages extends React.Component{
             loginOpen : false
            
         }
+        this.inputref = React.createRef()
+        
     }
+
+
+    componentDidMount(){
+        console.log(this.inputref)
+    this.inputref.current.focus()
+      }
+
 
     signinpage = () => {
 
@@ -50,8 +59,11 @@ export  default class RegistationPages extends React.Component{
             alert ("Login successfull");
             axios_service.Login(data).then((result) => {
                 console.log(result);
-                this.setState({loginOpen: true});
-              setTimeout(() => this.setState({redirect: "/dashboard"}), 1000)
+                if(result.data.message){
+                    console.log("***********************success*******************")
+                    localStorage.setItem('user_details', result.data.data);
+                    this.setState({redirect: "/login"});
+                  }
                 
               })
             }
@@ -94,6 +106,7 @@ export  default class RegistationPages extends React.Component{
         <div className="bodyText">
         <div className="bodyLTE">
         <TextField
+                 inputRef={this.inputref}
                  error = {this.state.emailerror}
                  label="Email" 
                  name="email"
