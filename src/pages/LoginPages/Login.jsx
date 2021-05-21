@@ -29,6 +29,11 @@ export  default class RegistationPages extends React.Component{
     this.inputref.current.focus()
       }
 
+      handleClose = () => {
+        this.setState({ open: false });
+      };
+    
+
 
     signinpage = () => {
 
@@ -59,7 +64,8 @@ export  default class RegistationPages extends React.Component{
             alert ("Login successfull");
             axios_service.Login(data).then((result) => {
                 console.log(result);
-               
+                this.setState({ open: true });
+                localStorage.setItem('id',result.data.token);
                     this.setState({redirect: "/dashboard"});
                   
                 
