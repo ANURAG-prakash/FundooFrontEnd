@@ -5,18 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import Userservice from '../Services/userservices';
 import './CreateNotes.css';
 import Addicons from './icons';
-
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
-import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
-import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-
-
 const axios_service = new Userservice();
 
 export default class registrationPage extends React.Component {
@@ -25,8 +13,32 @@ export default class registrationPage extends React.Component {
     this.state = {
       Title: '',
       Note: '',
+      Reminder: '',
+      Color: '',
+      Image: '',
+      Collaborator: '',
+      IsPin: false,
+      IsArchive: false,
+      IsTrash: false,
+      UserId : '',
+      Titleerror : false,
+      Noteerror : false,
       toOpenNote: false,
     }
+  }
+
+
+
+  validation = () => {
+    let isError = false;
+    const errors = this.state;
+    errors.TitleError = this.state.Title === '' ? true : false;
+    errors.NoteError = this.state.Note === '' ? true : false;
+    this.setState({
+
+      ...errors
+    })
+    return isError = (errors.Title !== '' && errors.Note !== '') ? true : false
   }
 
   handleChange = () => {
@@ -47,6 +59,41 @@ export default class registrationPage extends React.Component {
     this.setState({ Note: e.target.value })
   }
 
+  Next = () => {
+
+    var isValidated = this.validation();
+  
+
+    if (isValidated) {
+      let data = {
+        "tile": this.state.Title,
+        "message": this.state.Note,
+        "reminder": this.state.Reminder,
+        "color": this.state.Color,
+        "image": this.state.Image,
+        "collaborator": this.state.Collaborator,
+        "isPin": this.state.isPin,
+        "isArchive": this.state.isArchive,
+        "isTrash": this.state.isTrash,
+        "userId": this.state.UserId
+      };
+
+      console.log("Note Added");
+      axios_service.AddNote(data).then((result) => {
+        console.log(result);
+
+      })
+    }
+  }
+
+
+  change = e => {
+    this.setState({
+        [e.target.name]: e.target.value
+    });
+ }
+
+
   render() {
 
     return (
@@ -61,9 +108,8 @@ export default class registrationPage extends React.Component {
 
               <div className="Icons">
                <Addicons/>
-               <ListItem button onClick={e => this.handleChange2()}>
-                  Close
-                </ListItem>
+              
+               <Button  onClick={e => this.handleChange2()}> Close</Button>
               </div>
 
             </form>

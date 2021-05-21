@@ -17,6 +17,10 @@ class Userservice {
     Login = (data) => {
         return axiosservice.postMethod(`${baseUrl}User/Login`, data)
     }
+
+    Addnotes = (data) => {
+        return axiosservice.postMethodnotes(`${baseUrl}Notes`, data)
+    }
 }
 
 export default Userservice 
