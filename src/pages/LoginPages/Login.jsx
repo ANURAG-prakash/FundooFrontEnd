@@ -53,17 +53,15 @@ export  default class RegistationPages extends React.Component{
         if(isValidated)
         {
             let data = {
-                "email": this.state.Email,
-                "password": this.state.Password
+                "email": this.state.email,
+                "password": this.state.password
               };
             alert ("Login successfull");
             axios_service.Login(data).then((result) => {
                 console.log(result);
-                if(result.data.message){
-                    console.log("***********************success*******************")
-                    localStorage.setItem('user_details', result.data.data);
-                    this.setState({redirect: "/login"});
-                  }
+               
+                    this.setState({redirect: "/dashboard"});
+                  
                 
               })
             }

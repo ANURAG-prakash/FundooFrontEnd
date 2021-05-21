@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Userservice from '../Services/userservices';
 import './CreateNotes.css';
+import Addicons from './icons';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -14,6 +15,7 @@ import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneO
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
+
 
 const axios_service = new Userservice();
 
@@ -57,27 +59,12 @@ export default class registrationPage extends React.Component {
 
               <textarea name="content" placeholder="Take a note ......" onChange = {e => this.handleChangeNote(e)}/>
 
-              <List className="Icons">
-                <ListItem button key="Index">
-                  <ListItemIcon>{<NotificationsNoneOutlinedIcon />}</ListItemIcon>
-
-                </ListItem>
-                <ListItem button key="Reminder">
-                  <ListItemIcon>{<PersonAddOutlinedIcon />}</ListItemIcon>
-
-                </ListItem>
-                <ListItem button key="Edit Label">
-                  <ListItemIcon>{<ImageOutlinedIcon />}</ListItemIcon>
-
-                </ListItem>
-                <ListItem button key="Archive">
-                  <ListItemIcon>{<ArchiveOutlinedIcon />}</ListItemIcon>
-
-                </ListItem>
-                <ListItem button onClick={e => this.handleChange2()}>
+              <div className="Icons">
+               <Addicons/>
+               <ListItem button onClick={e => this.handleChange2()}>
                   Close
                 </ListItem>
-              </List>
+              </div>
 
             </form>
 
