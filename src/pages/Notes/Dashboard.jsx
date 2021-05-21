@@ -23,7 +23,7 @@ import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Addnotes from '../../components/CreateNotes';
-// import Note from './Note';
+import NewNotes from '../../components/Notes';
 
 
 const drawerWidth = 240;
@@ -234,6 +234,7 @@ export default function MiniDrawer() {
 
         </div>  */}
         <Addnotes />
+        <NewNotes/>
         
         
        

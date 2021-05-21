@@ -78,3 +78,23 @@ form textarea
     font-size: 1rem;
     resize: none;
 }
+
+.note{
+    background: #fff;
+    width: 240px;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px rgb(175,175,175);
+    padding: 10px;
+    margin: 16px;
+    float:left;
+}
+.note h1{
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+.note p{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

@@ -13,7 +13,7 @@ export default class registrationPage extends React.Component {
     this.state = {
       Title: '',
       Note: '',
-      Reminder: '',
+      Reminder: new Date(),
       Color: '',
       Image: '',
       Collaborator: '',
@@ -46,25 +46,9 @@ export default class registrationPage extends React.Component {
   }
 
   handleChange2 = () => {
-    this.setState({ toOpenNote: false });
-  }
-
-  handleChangeTitle = (e) => {
-    console.log(e.target.value);
-    this.setState({ Title: e.target.value })
-  }
-
-  handleChangeNote = (e) => {
-    console.log(e.target.value);
-    this.setState({ Note: e.target.value })
-  }
-
-  Next = () => {
-
     var isValidated = this.validation();
-  
-
     if (isValidated) {
+      this.setState({ toOpenNote: false });
       let data = {
         "tile": this.state.Title,
         "message": this.state.Note,
@@ -82,10 +66,43 @@ export default class registrationPage extends React.Component {
       axios_service.AddNote(data).then((result) => {
         console.log(result);
 
+      }).catch((err) => {
+        console.log(err);
       })
+    }
+    if(!isValidated){
+      this.setState({ toOpenNote: false });
     }
   }
 
+  handleChangeTitle = (e) => {
+    console.log(e.target.value);
+    this.setState({ Title: e.target.value })
+  }
+
+  handleChangeNote = (e) => {
+    console.log(e.target.value);
+    this.setState({ Note: e.target.value })
+  }
+
+  handleChangeReminder = () => {
+
+  }
+
+  handleChangeCollaborator = (e) => {
+    console.log(e.target.value);
+    this.setState({ Note: e.target.value })
+  }
+
+  handleChangeArchive = () => {
+
+    if (this.state.IsArchive) {
+      this.setState({ isArchive: false })
+    }
+    else{
+      this.setState({ isArchive: true })
+    }
+  }
 
   change = e => {
     this.setState({
@@ -120,7 +137,7 @@ export default class registrationPage extends React.Component {
 
           <div className="NoteBody">
             <form>
-              <input type="text" placeholder="Take a note...." name="title" onClick={e => this.handleChange()} />
+              <input type="text" placeholder="Title" name="title" onClick={e => this.handleChange()} />
             </form>
 
           </div>
