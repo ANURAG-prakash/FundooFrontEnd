@@ -5,7 +5,10 @@ import TextField from '@material-ui/core/TextField';
 import Userservice from '../Services/userservices';
 import './CreateNotes.css';
 import Addicons from './icons';
+import IconsCreateNote from '../components/Icons/Icons2';
+
 const axios_service = new Userservice();
+
 
 export default class registrationPage extends React.Component {
   constructor(props) {
@@ -13,66 +16,13 @@ export default class registrationPage extends React.Component {
     this.state = {
       Title: '',
       Note: '',
-      Reminder: new Date(),
-      Color: '',
-      Image: '',
-      Collaborator: '',
-      IsPin: false,
-      IsArchive: false,
-      IsTrash: false,
-      UserId : '',
-      Titleerror : false,
-      Noteerror : false,
       toOpenNote: false,
     }
   }
 
 
-
-  validation = () => {
-    let isError = false;
-    const errors = this.state;
-    errors.TitleError = this.state.Title === '' ? true : false;
-    errors.NoteError = this.state.Note === '' ? true : false;
-    this.setState({
-
-      ...errors
-    })
-    return isError = (errors.Title !== '' && errors.Note !== '') ? true : false
-  }
-
   handleChange = () => {
     this.setState({ toOpenNote: true });
-  }
-
-  handleChange2 = () => {
-    var isValidated = this.validation();
-    if (isValidated) {
-      this.setState({ toOpenNote: false });
-      let data = {
-        "tile": this.state.Title,
-        "message": this.state.Note,
-        "reminder": this.state.Reminder,
-        "color": this.state.Color,
-        "image": this.state.Image,
-        "collaborator": this.state.Collaborator,
-        "isPin": this.state.isPin,
-        "isArchive": this.state.isArchive,
-        "isTrash": this.state.isTrash,
-        "userId": this.state.UserId
-      };
-
-      console.log("Note Added");
-      axios_service.AddNote(data).then((result) => {
-        console.log(result);
-
-      }).catch((err) => {
-        console.log(err);
-      })
-    }
-    if(!isValidated){
-      this.setState({ toOpenNote: false });
-    }
   }
 
   handleChangeTitle = (e) => {
@@ -85,31 +35,9 @@ export default class registrationPage extends React.Component {
     this.setState({ Note: e.target.value })
   }
 
-  handleChangeReminder = () => {
-
+  handleChangeClose = () => {
+    this.setState({ toOpenNote: false });
   }
-
-  handleChangeCollaborator = (e) => {
-    console.log(e.target.value);
-    this.setState({ Note: e.target.value })
-  }
-
-  handleChangeArchive = () => {
-
-    if (this.state.IsArchive) {
-      this.setState({ isArchive: false })
-    }
-    else{
-      this.setState({ isArchive: true })
-    }
-  }
-
-  change = e => {
-    this.setState({
-        [e.target.name]: e.target.value
-    });
- }
-
 
   render() {
 
@@ -124,9 +52,11 @@ export default class registrationPage extends React.Component {
               <textarea name="content" placeholder="Take a note ......" onChange = {e => this.handleChangeNote(e)}/>
 
               <div className="Icons">
-               <Addicons/>
+
+              <IconsCreateNote title = {this.state.Title} message = {this.state.Note} pin ={this.state.IsPin} isOpen = {this.handleChangeClose} />
+               {/* <Addicons/>
               
-               <Button  onClick={e => this.handleChange2()}> Close</Button>
+               <Button  onClick={e => this.handleChange2()}> Close</Button> */}
               </div>
 
             </form>

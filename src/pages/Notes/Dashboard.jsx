@@ -24,6 +24,8 @@ import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Addnotes from '../../components/CreateNotes';
 import NewNotes from '../../components/Notes';
+import DisplayNote from '../../components/DisplayNote';
+import Userservice from '../../Services/userservices';
 
 
 const drawerWidth = 240;
@@ -114,10 +116,25 @@ inputInput: {
   },
 }));
 
+const axios_service = new Userservice();
+
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const [notes, setNote] = React.useState([]);
+
+  React.useEffect(() => {
+    axios_service.DisplayNote().then((result) => {
+      console.log(result.data);
+      setNote(result.data);
+      document.title = `FUNDOO`;
+    }).catch((err) => {
+      console.log(err);
+    })
+  }, [])
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -231,10 +248,10 @@ export default function MiniDrawer() {
                    
                     </p>
             </form>
-
         </div>  */}
-        <Addnotes />
-        <NewNotes/>
+        <Addnotes getnote = {notes}/>
+            <DisplayNote getnotes = {notes}/>
+       
         
         
        

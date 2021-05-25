@@ -26,7 +26,7 @@ class Userservice {
         return axiosservice.postMethod(`${baseUrl}User/Login`, data,)
     }
 
-    Addnotes = (data) => {
+    AddNote = (data) => {
         return axiosservice.postMethod(`${baseUrl}Notes`, data,confignote)
     }
     DisplayNote = () => {

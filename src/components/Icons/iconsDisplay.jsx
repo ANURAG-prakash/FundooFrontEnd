@@ -1,6 +1,5 @@
 import React from 'react';
-import './CreateNotes.css';
-import './CreateNotes.css'
+import './iconsDisplay.css';
 import IconButton from '@material-ui/core/IconButton';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
