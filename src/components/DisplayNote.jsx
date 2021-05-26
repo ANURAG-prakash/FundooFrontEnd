@@ -4,7 +4,7 @@ import './Icons/icons3';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Icons from './icons';
+import Icons from './Icons/icons3';
 
 
 
@@ -28,6 +28,18 @@ export default function SpacingGrid(props) {
   const [spacing, setSpacing] = React.useState(2);
 
   const classes = useStyles();
+
+
+//   const changeBackground = (x) => {
+//     setAreIconsOpen(true);
+   
+// };
+
+//   const changeBackground2 = (x) => {
+//     setAreIconsOpen(false);
+   
+// };
+
 
   return (
     <div>

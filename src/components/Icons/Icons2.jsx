@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 
-import './icons2.css';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
+import './icons.css';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
@@ -13,9 +8,8 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+import Button from '@material-ui/core/Button';
 
-import addIcons from '../icons';
-import FiberPinOutlinedIcon from '@material-ui/icons/FiberPinOutlined';
 
 import Userservice from '../../Services/userservices';
 
@@ -47,9 +41,6 @@ export default class Icons extends Component {
     this.setState({ Note: e.target.value })
   }
 
-  handleChangeReminder = () => {
-
-  }
   
   handleChangeArchive = () => {
 
@@ -127,9 +118,9 @@ export default class Icons extends Component {
     render() {
 
         return (
-            <div className = "Icons">
+            <div className = "Iconss">
 
-<IconButton aria-label="Index">
+                <IconButton aria-label="Index">
                 <NotificationsNoneOutlinedIcon  />
                 </IconButton>
 
@@ -153,9 +144,9 @@ export default class Icons extends Component {
                 <IconButton aria-label="MoreIcons">
                 <MoreVertOutlinedIcon  />
                 </IconButton>
-                <ListItem button onClick={e => this.handleChange2()}>
+                <Button onClick={e => this.handleChange2()}>
                   Close
-                </ListItem>
+                </Button>
 
             </div>
         )

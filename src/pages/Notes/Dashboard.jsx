@@ -23,7 +23,6 @@ import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Addnotes from '../../components/CreateNotes';
-import NewNotes from '../../components/Notes';
 import DisplayNote from '../../components/DisplayNote';
 import Userservice from '../../Services/userservices';
 
@@ -126,6 +125,10 @@ export default function MiniDrawer() {
   const [notes, setNote] = React.useState([]);
 
   React.useEffect(() => {
+    GetNotes();
+  }, [])
+
+  const GetNotes = () => {
     axios_service.DisplayNote().then((result) => {
       console.log(result.data);
       setNote(result.data);
@@ -133,7 +136,7 @@ export default function MiniDrawer() {
     }).catch((err) => {
       console.log(err);
     })
-  }, [])
+  }
 
 
   const handleDrawerOpen = () => {
@@ -240,16 +243,8 @@ export default function MiniDrawer() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-         {/* <div>
-            <form>
-                <input type="text" placeholder ="Title" name="title" />
-                <p> 
-                  <textarea name="content" placeholder ="Take a note ......"/>
-                   
-                    </p>
-            </form>
-        </div>  */}
-        <Addnotes getnote = {notes}/>
+        
+        <Addnotes getNoteMethod={GetNotes}/>
             <DisplayNote getnotes = {notes}/>
        
         

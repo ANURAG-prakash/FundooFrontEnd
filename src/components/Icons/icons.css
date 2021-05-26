@@ -1,0 +1,14 @@
+.Iconss{
+    display: flex;
+    height: 20px;
+    column-gap: 20px;
+}
+
+.Icons{
+    display: flex;
+}
+
+.Items{
+
+    width: 50px;
+}
