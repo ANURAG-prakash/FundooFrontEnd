@@ -31,6 +31,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import Imagekeep from '../../assests/Keep.png';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 
 const drawerWidth = 240;
@@ -170,6 +172,28 @@ const closedropdown = () => {
         })}
       >
         <Toolbar>
+
+          {open ?
+
+
+          <IconButton
+            color="black"
+            aria-label="open drawer"
+            onClick={handleDrawerClose}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              // [classes.hide]: open,
+            })}
+          >
+           
+        
+
+            
+            <MenuIcon />
+          </IconButton>
+
+          :
+
           <IconButton
             color="black"
             aria-label="open drawer"
@@ -185,6 +209,9 @@ const closedropdown = () => {
             
             <MenuIcon />
           </IconButton>
+          }
+
+           <img className= "imagekeep" src = {Imagekeep}  />
          <div className="Fundoo">
                <div id="DF">F</div>
                <div id="DU">U</div>
@@ -197,6 +224,8 @@ const closedropdown = () => {
                <div id="DT">T</div>
                <div id="DE">E</div>
                </div>
+
+               
 
 
           <div className={classes.search}>
@@ -214,26 +243,9 @@ const closedropdown = () => {
             
           </div>
 
-          <div className="PersonOutlineOutlinedIcon">
-                            <div className="dropdown">
-                                <div className="close">
-                                    <PersonOutlineOutlinedIcon onClick={opendropdown} />
-                                    <div className="Style"> Person </div>
-                                </div>
-                                <div className="Open">
-                                    <Menu
-                                        className="menulist"
-                                        keepMounted
-                                        onClose={closedropdown}
-
-                                    >
-                                        <MenuItem onClick={closedropdown}>Welcome User !!</MenuItem>
-                                        <MenuItem  >< Button className="buttonsize" size="small" variant="contained">Logout</Button></MenuItem>
-
-                                    </Menu>
-                                </div>
-                            </div>
-                        </div>
+         
+                        <div className="Setting" color="black"><SettingsIcon/></div>
+                        
         
         </Toolbar>
       </AppBar>
