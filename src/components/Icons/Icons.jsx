@@ -15,7 +15,7 @@ import Userservice from '../../Services/userservices';
 
 const axios_service = new Userservice();
 
-export default class Icons extends Component {
+export default class CreateNoteIcons extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,10 +28,9 @@ export default class Icons extends Component {
       IsTrash: true,
       TitleError: false,
       NoteError: false,
-      toOpenNote: true,
+      toOpenNote: true
     }
   }
- 
 
   handleChangeReminder = () => {
 
@@ -50,14 +49,7 @@ export default class Icons extends Component {
   }
 
 
-  GetNotes = () => {
-    axios_service.DisplayNote().then((result) => {
-      console.log(result.data);
-      this.setNote(result.data);
-    }).catch((err) => {
-      console.log(err);
-    })
-  }
+
 
 
 
@@ -85,7 +77,6 @@ export default class Icons extends Component {
     if (isValidated) {
       this.setState({ toOpenNote: false });
       let data = {
-        "noteId":90003,
         "title": this.props.title,
         "message": this.props.message,
         "reminder": this.state.Reminder,
@@ -94,16 +85,15 @@ export default class Icons extends Component {
         "collaborator": this.state.Collaborator,
         "isPin": this.state.IsPin,
         "isArchive": this.state.IsArchive,
-        "isTrash": this.state.IsTrash,
-        "userId":100007
-        
+        "isTrash": this.state.IsTrash
       };
 
-      console.log(data);
-      axios_service.Update(data).then((result) => {
+      console.log("validation successful");
+      axios_service.AddNote(data).then((result) => {
         this.props.isOpen();
         console.log(this.props);
         console.log(result);
+        this.setState({redirect: "/dashboard"});
 
       }).catch((err) => {
         console.log(err);

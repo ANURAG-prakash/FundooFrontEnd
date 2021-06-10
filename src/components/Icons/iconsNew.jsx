@@ -7,7 +7,8 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Userservice from '../../Services/userservices';
-import Update from '../Update'
+import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
+
 
 const axios_service = new Userservice();
 
@@ -88,6 +89,11 @@ export default class IconsDisplayNote extends Component {
                 <IconButton onClick={this.handleChangeArchive} key="Archive">
                   <ArchiveOutlinedIcon />
                 </IconButton>
+
+
+                <IconButton aria-label="Colour">
+                <ColorLensOutlinedIcon  />
+                </IconButton>
                 
 
                
@@ -96,7 +102,7 @@ export default class IconsDisplayNote extends Component {
                 </IconButton>
                 
 
-             <div><Update/></div>
+             
 
             </div>
             

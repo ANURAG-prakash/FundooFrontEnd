@@ -22,9 +22,15 @@ import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Addnotes from '../../components/CreateNotes';
-import DisplayNote from '../../components/DisplayNote';
+import Addnotes from '../../components/CreateNotes/CreateNotes';
+import DisplayNote from '../../components/DisplayNotes/DisplayNote';
 import Userservice from '../../Services/userservices';
+import MenuBookSharpIcon from '@material-ui/icons/MenuBookSharp';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
 
 
 const drawerWidth = 240;
@@ -146,6 +152,14 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
+  const opendropdown = () => {
+    this.setState({ openDropDown: true });
+}
+
+const closedropdown = () => {
+    this.setState({ openDropDown: false });
+}
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -199,6 +213,27 @@ export default function MiniDrawer() {
             />
             
           </div>
+
+          <div className="PersonOutlineOutlinedIcon">
+                            <div className="dropdown">
+                                <div className="close">
+                                    <PersonOutlineOutlinedIcon onClick={opendropdown} />
+                                    <div className="Style"> Person </div>
+                                </div>
+                                <div className="Open">
+                                    <Menu
+                                        className="menulist"
+                                        keepMounted
+                                        onClose={closedropdown}
+
+                                    >
+                                        <MenuItem onClick={closedropdown}>Welcome User !!</MenuItem>
+                                        <MenuItem  >< Button className="buttonsize" size="small" variant="contained">Logout</Button></MenuItem>
+
+                                    </Menu>
+                                </div>
+                            </div>
+                        </div>
         
         </Toolbar>
       </AppBar>

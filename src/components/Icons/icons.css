@@ -6,7 +6,10 @@
 
 .Icons{
     display: flex;
-    column-gap: 5px;
+    align-items: center;
+    grid-column-gap: 6%;
+    column-gap: 2%;
+    padding: 6% 0 5% 0;
 }
 
 .Items{

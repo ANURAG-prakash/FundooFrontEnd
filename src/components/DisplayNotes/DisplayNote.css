@@ -1,0 +1,17 @@
+.MuiGrid-spacing-xs-2 > .MuiGrid-item {
+    padding: 8px;
+    width: 30% !important;
+}
+
+.title-display{
+    padding: 0px 10px 0 10px;
+}
+
+
+.message-display{
+    padding :10px;
+}
+
+h3{
+    padding: 10px;
+}

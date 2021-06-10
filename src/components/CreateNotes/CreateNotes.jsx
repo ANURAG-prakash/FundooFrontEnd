@@ -1,10 +1,10 @@
 import React from 'react';
 import './CreateNotes.css';
-import AddIcons from '../components/Icons/update';
+import AddIcons from '../Icons/Icons';
 
 
 
-export default class registrationPage extends React.Component {
+export default class CreateNotes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,9 +37,9 @@ export default class registrationPage extends React.Component {
 
     return (
       <>
-        
+        {this.state.toOpenNote ?
 
-          <div className="NoteBody2">
+          <div className="NoteBody">
             <form>
               <input type="text" placeholder="Title" name="title"  onChange = {e => this.handleChangeTitle(e)}/>
 
@@ -55,11 +55,18 @@ export default class registrationPage extends React.Component {
 
           </div>
 
-         
+          :
+
+          <div className="NoteBody">
+            <form>
+              <input type="text" placeholder="Title" name="title" onClick={e => this.handleChange()} />
+            </form>
+
+          </div>
 
 
 
-        
+        }
       </>
     )
 

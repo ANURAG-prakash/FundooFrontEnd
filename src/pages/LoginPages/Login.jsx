@@ -48,7 +48,6 @@ export  default class RegistationPages extends React.Component{
         errors.passworderror= this.state.password === '' ? true : false;
         this.setState({
             ...errors,
-            // ...this.state
         })
         return isError = (errors.email!=='' && errors.password!=='' ) ? true : false
     }
