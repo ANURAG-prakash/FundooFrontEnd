@@ -29,7 +29,6 @@ export default class Icons extends Component {
       TitleError: false,
       NoteError: false,
       toOpenNote: true,
-      set:[]
     }
   }
  
