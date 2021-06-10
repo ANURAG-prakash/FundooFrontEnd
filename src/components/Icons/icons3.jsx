@@ -7,6 +7,7 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Userservice from '../../Services/userservices';
+import Update from '../Update'
 
 const axios_service = new Userservice();
 
@@ -20,7 +21,7 @@ export default class IconsDisplayNote extends Component {
       Collaborator: '',
       IsPin: false,
       IsArchive: false,
-      IsTrash: false,
+      IsTrash: true,
       TitleError: false,
       NoteError: false
     }
@@ -95,7 +96,7 @@ export default class IconsDisplayNote extends Component {
                 </IconButton>
                 
 
-             
+             <div><Update/></div>
 
             </div>
             

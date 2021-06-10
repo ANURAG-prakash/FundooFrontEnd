@@ -132,7 +132,6 @@ export default function MiniDrawer() {
     axios_service.DisplayNote().then((result) => {
       console.log(result.data);
       setNote(result.data);
-      document.title = `FUNDOO`;
     }).catch((err) => {
       console.log(err);
     })

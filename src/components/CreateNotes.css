@@ -11,6 +11,19 @@
 
 }
 
+.NoteBody2{
+
+    background-color: #ffffff00;
+
+    width: 100;
+    display: flex;
+   padding-left: 2%;
+   padding-right: 2%;
+    height :100%
+   
+
+}
+
 .textfieldinput{
     border: 2px solid rgb(229, 235, 229);
     border-radius: 8px;

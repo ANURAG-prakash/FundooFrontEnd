@@ -42,7 +42,7 @@ export  default class RegistationPages extends React.Component{
 
 
     validation = () =>{
-        let isError = false;
+        let isError  = false;
         const errors = this.state;
         errors.emailerror= this.state.email === '' ? true : false;
         errors.passworderror= this.state.password === '' ? true : false;
@@ -124,7 +124,7 @@ export  default class RegistationPages extends React.Component{
         <div className="bodyLTP">
         
                  <TextField
-                 error = {this.state.emailerror}
+                 error = {this.state.passworderror}
                  label="Password" 
                  name="password"
                  type="password"
