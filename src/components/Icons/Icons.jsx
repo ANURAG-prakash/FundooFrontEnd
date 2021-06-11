@@ -15,10 +15,12 @@ import Userservice from '../../Services/userservices';
 
 const axios_service = new Userservice();
 
-export default class CreateNoteIcons extends Component {
+export default class IconsCreateNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      Title: '',
+      Note: '',
       Reminder: new Date(),
       Color: '',
       Image: '',
@@ -32,47 +34,25 @@ export default class CreateNoteIcons extends Component {
     }
   }
 
-  handleChangeReminder = () => {
-
+  static getDerivedStateFromProps(props){
+    return {Title : props.title, Note : props.message}
   }
 
-  handleChangeCollaborator = (e) => {
-    console.log(e.target.value);
-    this.setState({ Note: e.target.value })
-  }
-
-  
-  handleChangeArchive = () => {
-
-      console.log(this.state.IsArchive)
-      this.setState({ IsArchive: true })
-  }
-
-
-
-
-
-
-
-  
   validation = () => {
     let isError = false;
     const errors = this.state;
-    errors.TitleError = this.props.title === '' ? true : false;
-    errors.NoteError = this.props.message === '' ? true : false;
+    errors.TitleError = this.state.Title === '' ? true : false;
+    errors.NoteError = this.state.Note === '' ? true : false;
     this.setState({
 
       ...errors
     })
-    return isError = (this.props.title !== '' && this.props.message !== '') ? true : false
+    return isError = (this.state.Title !== '' && this.state.Note !== '') ? true : false
   }
 
   handleChange2 = () => {
 
     var isValidated = this.validation();
-    console.log(this.props.title);
-    console.log(this.props.message);
-    console.log(this.state.isArchive);
 
     if (isValidated) {
       this.setState({ toOpenNote: false });
@@ -93,7 +73,8 @@ export default class CreateNoteIcons extends Component {
         this.props.isOpen();
         console.log(this.props);
         console.log(result);
-        this.setState({redirect: "/dashboard"});
+        this.props.getNoteMethod();
+        this.props.reset();
 
       }).catch((err) => {
         console.log(err);
@@ -103,7 +84,7 @@ export default class CreateNoteIcons extends Component {
 
     if(!isValidated){
       this.props.isOpen();
-        console.log(this.props);
+      console.log(this.props);
       this.setState({ toOpenNote: false });
     }
 
