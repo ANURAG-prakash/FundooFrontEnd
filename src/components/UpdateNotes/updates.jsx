@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import './Update.css'
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
-
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-
-
 import Button from '@material-ui/core/Button';
+import FiberPinOutlinedIcon from '@material-ui/icons/FiberPinOutlined';
+
+
+
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -38,7 +43,7 @@ export default class UpdateNote extends Component {
       Collaborator: '',
       IsPin: false,
       IsArchive: false,
-      IsTrash: false,
+      IsTrash: true,
       TitleError: false,
       NoteError: false,
       AreIconsOpen: false
@@ -78,9 +83,6 @@ export default class UpdateNote extends Component {
   handleChange2 = () => {
 
     var isValidated = this.validation();
-    console.log(this.state.Title);
-    console.log(this.state.Note);
-    console.log(this.state.isArchive);
 
     if (isValidated) {
       this.setState({ toOpenNote: false });
@@ -100,6 +102,8 @@ export default class UpdateNote extends Component {
       console.log("validation successful");
       axios_service.Update(data).then((result) => {
         console.log(result);
+        this.props.handleClose();
+        this.props.getNoteMethod();
 
       }).catch((err) => {
         console.log(err);
@@ -114,25 +118,24 @@ export default class UpdateNote extends Component {
   }
 
 
-
-
-
-
   render() {
     return (
       <div>
-        
 
         <Dialog onClose={this.props.handleClose} aria-labelledby="simple-dialog-title" open={this.props.open} >
 
           <div className="NoteBody-update">
+            <div className="Container-update">
+              <>
 
-
-            <input className="text-Update" value={this.props.oneNote.title} type="text" name="title" onChange={e => this.handleChangeTitle(e)} />
-
-            <textarea className="content-Update" value={this.props.oneNote.message} name="content" onChange={e => this.handleChangeNote(e)} />
-
+                <input className="content-Update" defaultValue={this.state.Title} type="text" name="title" onChange={e => this.handleChangeTitle(e)} />
+              </>
+              <>
+                <textarea className="text-Update" defaultValue={this.state.Note} name="content" onChange={e => this.handleChangeNote(e)} />
+              </>
+            </div>
             <div className="Icons-Update">
+
               <IconButton aria-label="Index">
                 <NotificationsNoneOutlinedIcon />
               </IconButton>
@@ -154,7 +157,10 @@ export default class UpdateNote extends Component {
                 <ColorLensOutlinedIcon />
               </IconButton>
 
-              < Button onClick={e => this.handleChange2()}>
+              <IconButton aria-label="MoreIcons">
+                <MoreVertOutlinedIcon />
+              </IconButton>
+              <Button onClick={e => this.handleChange2()}>
                 Close
               </Button>
 
@@ -163,7 +169,6 @@ export default class UpdateNote extends Component {
           </div>
 
         </Dialog>
-               
 
       </div>
     )

@@ -2,17 +2,20 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 20%;
+    padding: 10px;
+}
+.Container-update{
+    column-gap: 20px;
 }
 .text-Update{
 
-    width: 350px;
+     width: 400px; 
     font-family: Roboto,Arial,sans-serif;
     font-size: .875rem;
     font-weight: 400;
     height: 3%;
     padding: 10%;
-    border: none !important;
+     border: none !important; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +26,7 @@ column-gap: 5% 2% 2% 2% ;
 }
 
 .content-Update{
-    width: 350px;
+    width: 400px;
     font-family: Roboto,Arial,sans-serif;
     font-size: .875rem;
     font-weight: 400;
@@ -32,5 +35,5 @@ column-gap: 5% 2% 2% 2% ;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none !important;
+    /* border: none !important; */
 }

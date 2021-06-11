@@ -33,6 +33,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 import Imagekeep from '../../assests/Keep.png';
 import SettingsIcon from '@material-ui/icons/Settings';
+import RefreshIcon from '@material-ui/icons/Refresh';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 const drawerWidth = 240;
@@ -48,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'spaceBetween',
-    
+
   },
   // appBarShift: {
   //   marginLeft: drawerWidth,
@@ -59,27 +61,27 @@ const useStyles = makeStyles((theme) => ({
   //   }),
   // },
   search: {
- display: 'flex',
- flexDirection: 'row',
- position: 'relative',
- border: "1px solid transparent", 
- borderRadius: theme.shape.borderRadius,
- backgroundColor: "#f1f3f4",
- height: "40px",
- marginLeft: "100px",
- borderRadius: "8px",
- position: 'relative',
- width: "650px",
-},
-inputInput: {
- padding: theme.spacing(1, 1, 1, 0),
- paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
- transition: theme.transitions.create('width'),
- width: '100%',
- [theme.breakpoints.up('md')]: {
-   width: '20ch',
- },
-},
+    display: 'flex',
+    flexDirection: 'row',
+    position: 'relative',
+    border: "1px solid transparent",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: "#f1f3f4",
+    height: "40px",
+    marginLeft: "100px",
+    borderRadius: "8px",
+    position: 'relative',
+    width: "650px",
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
   menuButton: {
     marginRight: 36,
   },
@@ -114,7 +116,7 @@ inputInput: {
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
-    
+
     ...theme.mixins.toolbar,
   },
   content: {
@@ -154,13 +156,7 @@ export default function MiniDrawer() {
     setOpen(false);
   };
 
-  const opendropdown = () => {
-    this.setState({ openDropDown: true });
-}
 
-const closedropdown = () => {
-    this.setState({ openDropDown: false });
-}
 
   return (
     <div className={classes.root}>
@@ -176,62 +172,62 @@ const closedropdown = () => {
           {open ?
 
 
-          <IconButton
-            color="black"
-            aria-label="open drawer"
-            onClick={handleDrawerClose}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              // [classes.hide]: open,
-            })}
-          >
-           
-        
+            <IconButton
+              color="black"
+              aria-label="open drawer"
+              onClick={handleDrawerClose}
+              edge="start"
+              className={clsx(classes.menuButton, {
+                // [classes.hide]: open,
+              })}
+            >
 
-            
-            <MenuIcon />
-          </IconButton>
 
-          :
 
-          <IconButton
-            color="black"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              // [classes.hide]: open,
-            })}
-          >
-           
-        
 
-            
-            <MenuIcon />
-          </IconButton>
+              <MenuIcon />
+            </IconButton>
+
+            :
+
+            <IconButton
+              color="black"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, {
+                // [classes.hide]: open,
+              })}
+            >
+
+
+
+
+              <MenuIcon />
+            </IconButton>
           }
 
-           <img className= "imagekeep" src = {Imagekeep}  />
-         <div className="Fundoo">
-               <div id="DF">F</div>
-               <div id="DU">U</div>
-               <div id="DN">N</div>
-               <div id="DD">D</div>
-               <div id="DO">O</div>
-               <div id="DOO">O</div>
-               <div id="DN">N</div>
-               <div id="DOOO">O</div>
-               <div id="DT">T</div>
-               <div id="DE">E</div>
-               </div>
+          <img className="imagekeep" src={Imagekeep} />
+          <div className="Fundoo">
+            <div id="DF">F</div>
+            <div id="DU">U</div>
+            <div id="DN">N</div>
+            <div id="DD">D</div>
+            <div id="DO">O</div>
+            <div id="DOO">O</div>
+            <div id="DN">N</div>
+            <div id="DOOO">O</div>
+            <div id="DT">T</div>
+            <div id="DE">E</div>
+          </div>
 
-               
+
 
 
           <div className={classes.search}>
-            
-              <SearchIcon class = "searchIcon"/>
-             
+
+            <SearchIcon class="searchIcon" />
+
             <InputBase
               placeholder="Search"
               classes={{
@@ -240,13 +236,18 @@ const closedropdown = () => {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-            
+
+          </div>
+          <div className="Icons-header">
+            <div className="Icons-header1">
+
+            <div className="Setting" color="black"><SettingsIcon /></div>
+            <div className="Refresh" color="black"><RefreshIcon /></div>
+            <div className="Profile" color="black"><AccountCircleIcon /></div>
+          </div>
           </div>
 
-         
-                        <div className="Setting" color="black"><SettingsIcon/></div>
-                        
-        
+
         </Toolbar>
       </AppBar>
       <Drawer
@@ -262,40 +263,40 @@ const closedropdown = () => {
           }),
         }}
       >
-        
-       
+
+
         <List>
-          {['Notes', 'Reminders', 'Inspiration', 'Personal','Work','Edit Lable','Archive','Bin'].map((text, index) => (
+          {['Notes', 'Reminders', 'Inspiration', 'Personal', 'Work', 'Edit Lable', 'Archive', 'Bin'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-              {index === 0 && <EmojiObjectsOutlinedIcon/>}
-              {index === 1 && <NotificationsNoneOutlinedIcon/>}
-              {index === 2 && <LabelOutlinedIcon />}
-              {index === 3 && <LabelOutlinedIcon />}
-              {index === 4 && <LabelOutlinedIcon/>}
-              {index === 5 && <EditOutlinedIcon/>}
-              {index === 6 && <ArchiveOutlinedIcon />}
-              {index === 7 && <DeleteIcon />}
+                {index === 0 && <EmojiObjectsOutlinedIcon />}
+                {index === 1 && <NotificationsNoneOutlinedIcon />}
+                {index === 2 && <LabelOutlinedIcon />}
+                {index === 3 && <LabelOutlinedIcon />}
+                {index === 4 && <LabelOutlinedIcon />}
+                {index === 5 && <EditOutlinedIcon />}
+                {index === 6 && <ArchiveOutlinedIcon />}
+                {index === 7 && <DeleteIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
-        <div className={classes.toolbar}>
+        {/* <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
-        </div> 
+        </div> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        
-        <Addnotes getNoteMethod={GetNotes}/>
-            <DisplayNote getnotes = {notes}/>
-       
-        
-        
-       
+
+        <Addnotes getnotes={notes} getNoteMethod={GetNotes} />
+        <DisplayNote getnotes={notes} getNoteMethod={GetNotes} />
+
+
+
+
       </main>
     </div>
   );

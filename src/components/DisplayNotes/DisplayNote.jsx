@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
-import Userservice from  '../../Services/userservices';
-import '../Icons/iconsNew';
+import './DisplayNote.css';
+import Userservice from '../../Services/userservices';
+
+import Icons from '../Icons/iconsNew';
+import UpdateNote from '../UpdateNotes/updates';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Icons from '../Icons/iconsNew';
-import UpDate from '../UpdateNotes/updates'
-import './DisplayNote.css'
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 
 const axios_service = new Userservice();
@@ -21,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   paper: {
-    width: 300,
+    width: 250,
   },
   control: {
     padding: theme.spacing(2),
@@ -37,61 +45,35 @@ export default function SpacingGrid(props) {
 
   const classes = useStyles();
 
-  const handleClickOpen = (index) => {
-    setNote(index);
+  const handleClickOpen = (value) => {
+    console.log(value)
+    setNote(value);
     setOpen(true);
-    console.log(note)
   };
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleChangeTitle = (e) => {
-    console.log(e.target.value);
-    setTitle( e.target.title )
-  }
-
-  const handleChangeNote = (e) => {
-    console.log(e.target.value);
-    this.setState( e.target.message )
-  }
-
-  const Update = (e) => {
-    setOpen(false);
-    let data = {
-      "title": {title},
-        "message": {message}
-    }
-    axios_service.Update(data).then((result) => {
-      console.log(result);
-      this.setState({ redirect: "/dashBoard" });
-
-    }).catch((ex) => {
-      console.log(ex)
-    })
-
-  };
 
   return (
     <div>
 
       <Grid item xs={12}>
         <Grid container justify="flex-start" spacing={spacing}>
-          {props.getnotes.slice(0).reverse().map((value, index) =>
-
+          {props.getnotes.map((value, index) =>
+            
             <Grid key={value.noteId} item>
 
                 <Paper className={classes.paper} className="paper">
 
                   <div>
-
                   <div className= "TitleMessage" onClick={() => handleClickOpen(value)}>
-                  <div className="title-display"> <h3>{value.title}</h3></div>
-                  <div className="message-display">{value.message}</div>
+                  <div className="title"> <h3>{value.title}</h3></div>
+                  <div className="message">{value.message}</div>
                   </div>
                   
-                  <Icons oneNote={value}/>
+                  <Icons oneNote={value} getNoteMethod={props.getNoteMethod}/>
 
                   </div>
 
@@ -103,7 +85,7 @@ export default function SpacingGrid(props) {
         </Grid>
       </Grid>
 
-      <UpDate oneNote = {note} open ={open} handleClose = {handleClose}/>
+      <UpdateNote oneNote = {note} open ={open} handleClose = {handleClose} getNoteMethod={props.getNoteMethod}/>
 
     </div>
   );

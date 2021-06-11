@@ -1,5 +1,6 @@
 import React from 'react';
 import './CreateNotes.css';
+import FiberPinOutlinedIcon from '@material-ui/icons/FiberPinOutlined';
 import AddIcons from '../Icons/Icons';
 
 
@@ -17,6 +18,9 @@ export default class CreateNotes extends React.Component {
 
   handleChange = () => {
     this.setState({ toOpenNote: true });
+    this.setState({ Title:'' })
+    this.setState({ Note:'' })
+
   }
 
   handleChangeTitle = (e) => {
@@ -33,6 +37,10 @@ export default class CreateNotes extends React.Component {
     this.setState({ toOpenNote: false });
   }
 
+  resetState = () => {
+    this.setState({ Title: '', Note: '' })
+  }
+
   render() {
 
     return (
@@ -41,14 +49,16 @@ export default class CreateNotes extends React.Component {
 
           <div className="NoteBody">
             <form>
-              <input type="text" placeholder="Title" name="title"  onChange = {e => this.handleChangeTitle(e)}/>
+              <input type="text" placeholder="Title" name="title" onChange={e => this.handleChangeTitle(e)} />
 
-              <textarea name="content" placeholder="Take a note ......" onChange = {e => this.handleChangeNote(e)}/>
+
+
+              <textarea name="content" placeholder="Take a note ......" onChange={e => this.handleChangeNote(e)} />
 
               <div className="Icons">
 
-              <AddIcons title = {this.state.Title} message = {this.state.Note} pin ={this.state.IsPin} isOpen = {this.handleChangeClose} />
-              
+                <AddIcons reset={this.resetState} getNoteMethod={this.props.getNoteMethod} title={this.state.Title} message={this.state.Note} pin={this.state.IsPin} isOpen={this.handleChangeClose} />
+
               </div>
 
             </form>
@@ -59,7 +69,7 @@ export default class CreateNotes extends React.Component {
 
           <div className="NoteBody">
             <form>
-              <input type="text" placeholder="Title" name="title" onClick={e => this.handleChange()} />
+              <input type="text"  placeholder="Take a note ......" name="title" onClick={e => this.handleChange()} />
             </form>
 
           </div>

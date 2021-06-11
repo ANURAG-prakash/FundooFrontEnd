@@ -24,7 +24,8 @@ export default class IconsDisplayNote extends Component {
       IsArchive: false,
       IsTrash: true,
       TitleError: false,
-      NoteError: false
+      NoteError: false,
+      IconsShow:false
     }
   }
 
@@ -36,7 +37,7 @@ export default class IconsDisplayNote extends Component {
       }
       axios_service.MakeArchive(data).then((result) => {
         console.log(result);
-        this.setState({ redirect: "/dashboard" });
+        this.props.getNoteMethod();
 
       }).catch((ex) => {
         console.log(ex)
@@ -52,20 +53,32 @@ export default class IconsDisplayNote extends Component {
       }
       axios_service.MakeTrash(data).then((result) => {
         console.log(result);
-        this.setState({ redirect: "/dashboard" });
+        this.props.getNoteMethod();
 
       }).catch((ex) => {
         console.log(ex)
       })
     
   }
+  changeit = (x) => {
+    this.setState({IconsShow: true});
+
+  };
+
+  changeit2 = (x) => {
+    this.setState({IconsShow: false});
+  };
 
 
     
     render() {
         return (
 
-            <div className= "Icons">
+          <div>
+
+           {this.state.IconsShow ?
+
+            <div className= "Icons" onMouseLeave = {this.changeit2}> 
 
                 
                 <IconButton onChange={e => this.handleChangeReminder(e)} key="Index">
@@ -104,7 +117,12 @@ export default class IconsDisplayNote extends Component {
 
              
 
-            </div>
+             </div>
+             :
+
+             <div onMouseEnter = {this.changeit} className= "BlankSpace"></div>
+          } 
+          </div>
             
         )
     }
