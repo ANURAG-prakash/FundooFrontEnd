@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './icons.css';
+import '../../components/Icons/icons.css';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
@@ -8,6 +8,7 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import Userservice from '../../Services/userservices';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
+import UnarchiveIcon from '@material-ui/icons/Unarchive';
 
 
 const axios_service = new Userservice();
@@ -35,23 +36,7 @@ export default class IconsNew extends Component {
       let data = {
         "noteId": this.props.oneNote.noteId,
       }
-      axios_service.MakeArchive(data).then((result) => {
-        console.log(result);
-        this.props.getNoteMethod();
-
-      }).catch((ex) => {
-        console.log(ex)
-      })
-    
-  }
-
-  handleChangeTrash = () => {
-      console.log(this.state.IsTrash)
-      this.setState({ IsTrash: true })
-      let data = {
-        "noteId": this.props.oneNote.noteId
-      }
-      axios_service.MakeTrash(data).then((result) => {
+      axios_service.MakeUnArchive(data).then((result) => {
         console.log(result);
         this.props.getNoteMethod();
 
@@ -100,7 +85,7 @@ export default class IconsNew extends Component {
 
                
                 <IconButton onClick={this.handleChangeArchive} key="Archive">
-                  <ArchiveOutlinedIcon />
+                  <UnarchiveIcon />
                 </IconButton>
 
 
@@ -110,7 +95,7 @@ export default class IconsNew extends Component {
                 
 
                
-                <IconButton onClick={this.handleChangeTrash} key="Bin">
+                <IconButton  key="Bin">
                 <DeleteOutlinedIcon />
                 </IconButton>
                 

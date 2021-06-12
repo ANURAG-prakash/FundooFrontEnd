@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './DisplayNote.css';
+import '../DisplayNotes/DisplayNote.css';
 import Userservice from '../../Services/userservices';
-import Icons from '../Icons/iconsNew';
+import Icons from '../pin/trash';
 import UpdateNote from '../UpdateNotes/updates';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';

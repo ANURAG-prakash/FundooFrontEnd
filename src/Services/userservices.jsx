@@ -34,11 +34,33 @@ class Userservice {
         return axiosservice.getMethod(`${baseUrl}Notes`, confignote)
     }
 
+    DisplayTrash = () => {
+        
+        return axiosservice.getMethod(`${baseUrl}Notes/Trash`, confignote)
+    }
+
+    DisplayArchive = () => {
+        
+        return axiosservice.getMethod(`${baseUrl}Notes/Archive`, confignote)
+    }
+
     MakeArchive = (data) => {
         return axiosservice.putMethod(`${baseUrl}Notes/${data.noteId}/Archive`, data, confignote)
     }
 
+    MakeUnArchive = (data) => {
+        return axiosservice.putMethod(`${baseUrl}Notes/${data.noteId}/UnArchive`, data, confignote)
+    }
+
     MakeTrash = (data) => {
+        return axiosservice.deleteMethod(`${baseUrl}Notes/${data.noteId}/Trash`, confignote)
+    }
+
+    MakeUnTrash = (data) => {
+        return axiosservice.putMethod(`${baseUrl}Notes/${data.noteId}/Restore`, data, confignote)
+    }
+
+    MakeDelete = (data) => {
         return axiosservice.deleteMethod(`${baseUrl}Notes/${data.noteId}/Delete`, confignote)
     }
 

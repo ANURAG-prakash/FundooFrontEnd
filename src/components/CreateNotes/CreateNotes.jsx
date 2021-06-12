@@ -1,6 +1,5 @@
 import React from 'react';
 import './CreateNotes.css';
-import FiberPinOutlinedIcon from '@material-ui/icons/FiberPinOutlined';
 import AddIcons from '../Icons/Icons';
 
 

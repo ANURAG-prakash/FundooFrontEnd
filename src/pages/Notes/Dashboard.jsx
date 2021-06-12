@@ -35,6 +35,10 @@ import Imagekeep from '../../assests/Keep.png';
 import SettingsIcon from '@material-ui/icons/Settings';
 import RefreshIcon from '@material-ui/icons/Refresh';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Note from '../../components/Note/Note';
+import Trash from '../../components/TrashFolder/Trash';
+import Archive from '../../components/Archivefolder/Archive';
+import { Redirect, Route, useHistory, Switch } from "react-router-dom"
 
 
 const drawerWidth = 240;
@@ -71,7 +75,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "100px",
     borderRadius: "8px",
     position: 'relative',
-    width: "650px",
+    width: "750px",
+    padding:"10px"
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -134,6 +139,9 @@ export default function MiniDrawer() {
 
   const [notes, setNote] = React.useState([]);
 
+
+  let search = useHistory();
+
   React.useEffect(() => {
     GetNotes();
   }, [])
@@ -155,6 +163,20 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+
+  const handleChangePath = (value) => {
+    if (value === "archive") {
+      search.push("/dashboard/archive")
+    }
+    else if (value === "trash") {
+      search.push("/dashboard/trash")
+   }
+   else if(value === "dashboard") {
+    search.push("/dashboard")
+   }
+ 
+   };
 
 
 
@@ -263,9 +285,43 @@ export default function MiniDrawer() {
           }),
         }}
       >
-
-
         <List>
+        <ListItem button key="Personal">
+            <ListItemIcon>{<LabelOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Personal" />
+          </ListItem>
+          <ListItem button key="Notes" onClick={() =>handleChangePath("dashboard")}>
+            <ListItemIcon>{<EmojiObjectsOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Notes" />
+          </ListItem>
+          <ListItem button key="Reminder">
+            <ListItemIcon>{<NotificationsNoneOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Reminder" />
+            </ListItem>
+            <ListItem button key="Inspiration">
+            <ListItemIcon>{<LabelOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Inspiration" />
+          </ListItem>
+         
+          <ListItem button key="Work">
+            <ListItemIcon>{<LabelOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Work" />
+          </ListItem>
+          <ListItem button key="Edit Label">
+            <ListItemIcon>{<EditOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Edit Label" />
+          </ListItem>
+          <ListItem button key="Archive" onClick={() =>handleChangePath("archive")}>
+            <ListItemIcon>{<ArchiveOutlinedIcon />}</ListItemIcon>
+            <ListItemText primary="Archive" />
+          </ListItem>
+          <ListItem button key="Bin" onClick={()=>handleChangePath("trash")}>
+            <ListItemIcon>{<DeleteIcon />}</ListItemIcon>
+            <ListItemText primary="Bin" />
+          </ListItem>
+        </List>
+
+        {/* <List>
           {['Notes', 'Reminders', 'Inspiration', 'Personal', 'Work', 'Edit Lable', 'Archive', 'Bin'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
@@ -281,7 +337,7 @@ export default function MiniDrawer() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
         {/* <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -291,8 +347,15 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
 
-        <Addnotes getnotes={notes} getNoteMethod={GetNotes} />
-        <DisplayNote getnotes={notes} getNoteMethod={GetNotes} />
+        {/* <Addnotes getnotes={notes} getNoteMethod={GetNotes} />
+        <DisplayNote getnotes={notes} getNoteMethod={GetNotes} /> */}
+
+             <Switch>
+                <Route exact path="/dashboard" component={Note} />
+                <Route  path="/dashboard/archive" component={Archive} />
+        <Route  path="/dashboard/trash" component={Trash} />
+        </Switch>
+              
 
 
 

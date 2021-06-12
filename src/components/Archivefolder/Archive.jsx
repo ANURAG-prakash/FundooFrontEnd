@@ -1,12 +1,12 @@
 import React from 'react';
 import Addnotes from '../../components/CreateNotes/CreateNotes';
-import DisplayNote from '../../components/DisplayNotes/DisplayNote';
+import DisplayNote from './DisplayArchive';
 import Userservice from '../../Services/userservices';
 
 const axios_service = new Userservice();
 
 
-    export default function Note() {
+    export default function Trash() {
        
       
         const [notes, setNote] = React.useState([]);
@@ -16,7 +16,7 @@ const axios_service = new Userservice();
         }, [])
       
         const GetNotes = () => {
-          axios_service.DisplayNote().then((result) => {
+          axios_service. DisplayArchive().then((result) => {
             console.log(result.data);
             setNote(result.data);
           }).catch((err) => {
@@ -25,10 +25,8 @@ const axios_service = new Userservice();
         }
     return (
         <div>
-             <Addnotes getnotes={notes} getNoteMethod={GetNotes} />
+             
         <DisplayNote getnotes={notes} getNoteMethod={GetNotes} />
         </div>
     )
 }
-
-

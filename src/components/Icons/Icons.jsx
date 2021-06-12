@@ -15,7 +15,7 @@ import Userservice from '../../Services/userservices';
 
 const axios_service = new Userservice();
 
-export default class IconsCreateNote extends Component {
+export default class Icons extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ export default class IconsCreateNote extends Component {
       Collaborator: '',
       IsPin: false,
       IsArchive: false,
-      IsTrash: true,
+      IsTrash: false,
       TitleError: false,
       NoteError: false,
       toOpenNote: true

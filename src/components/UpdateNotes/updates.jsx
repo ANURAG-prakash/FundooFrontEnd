@@ -1,37 +1,19 @@
 import React, { Component } from 'react'
 import './Update.css'
-
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import Button from '@material-ui/core/Button';
-import FiberPinOutlinedIcon from '@material-ui/icons/FiberPinOutlined';
-
-
-
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
-
 import Userservice from '../../Services/userservices';
 const axios_service = new Userservice();
 
 
-export default class UpdateNote extends Component {
+export default class Update extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +25,7 @@ export default class UpdateNote extends Component {
       Collaborator: '',
       IsPin: false,
       IsArchive: false,
-      IsTrash: true,
+      IsTrash: false,
       TitleError: false,
       NoteError: false,
       AreIconsOpen: false
